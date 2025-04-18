@@ -1,0 +1,438 @@
+[
+    {
+      "prompt": "What is the purpose of comments in Java programs?\\n",
+      "response": "Comments are non‑executable parts of code used to document what the program does and why. They help programmers understand and maintain code without affecting its behavior. Think of comments as sticky notes on a blueprint: they don’t change the design but explain the architect’s intent. Does that make sense?"
+    },
+    {
+      "prompt": "Describe the two types of comments available in Java and how they differ.\\n",
+      "response": "Java offers two comment styles: multiline comments enclosed by /* and */ that can span several lines, and single‑line comments that start with //. Multiline comments are like paragraph‑long notes in a notebook, while // comments are like margin remarks beside a line of text. Would you like another example?"
+    },
+    {
+      "prompt": "Why is proper program layout and indentation important in Java? Provide a programming tip.\\n",
+      "response": "Although Java doesn’t enforce how you arrange braces and indentation, a consistent style makes your code readable and helps you see block boundaries at a glance. Proper layout is like organizing chapters and subheadings in a book: aligned headings and indents guide the reader through the structure. Does that help illustrate why indentation matters?"
+    },
+    {
+      "prompt": "What are Java keywords and identifiers, and what rules govern their usage?\\n",
+      "response": "Java keywords are 50 reserved words (like class, public, static) with special meaning that you cannot reuse as names. Identifiers are your custom names for classes, methods, and variables that must start with a letter and may include letters, digits, underscores, or dollar signs. Think of keywords as traffic signs you must obey, and identifiers as street names you choose within those rules. Any questions about naming conventions?"
+    },
+    {
+      "prompt": "Explain the difference between objects and primitive data types in Java.\\n",
+      "response": "In Java, primitive types (int, double, boolean) store simple values directly, while objects (such as String or your own classes) are complex entities with attributes and behaviors. It’s like comparing basic ingredients (sugar, flour) to a fully prepared dish: primitives are ingredients, and objects are dishes built from them. Does that analogy clarify the distinction?"
+    },
+    {
+      "prompt": "What is a variable in Java and how does it relate to data types?\\n",
+      "response": "A variable in Java is a named container that holds a value of a specified data type. Declaring a variable is like reserving a specific‑size box for your belongings—you know exactly what fits inside. For example, an int variable is a box that only fits whole numbers. Any thoughts on how this container metaphor applies?"
+    },
+    {
+      "prompt": "What are Java statements, and what rule must they follow regarding semicolons?\\n",
+      "response": "A statement in Java is a complete unit of execution that ends with a semicolon, indicating where one action stops and the next begins. Omitting the semicolon is like forgetting a period at the end of a sentence—it causes confusion and a syntax error. Would you like an analogy for how statements form a narrative?"
+    },
+    {
+      "prompt": "Explain the roles of declaration statements and assignment statements in Java.\\n",
+      "response": "A declaration statement introduces a variable and reserves memory for it, while an assignment statement gives that variable a value. It’s like naming an empty trophy case (declaration) and then placing a trophy inside (assignment). Does that metaphor help distinguish the two steps?"
+    },
+    {
+      "prompt": "What is a Java expression and how do operators like =, ==, +, and < function?\\n",
+      "response": "An expression in Java is code that evaluates to a value, such as arithmetic (3 + 4) or comparisons (x < y). Operators like = assign values, == test equality, + add numbers, and < compare values. Think of expressions as recipes that produce a dish, and operators as cooking actions like mixing or measuring. Any questions about how operators function?"
+    },
+    {
+      "prompt": "What is a class header in Java and what are its components?\\n",
+      "response": "A class header defines the class’s name, its access level (such as public), and its place in the inheritance hierarchy (for example, extends Object). For instance, public class HelloWorld extends Object specifies that HelloWorld is publicly accessible and a subclass of Object. It’s like a book’s title page showing the title, author, and related series. Does that analogy make sense?"
+    },
+    {
+      "prompt": "How do you declare an instance variable in Java, and what is the significance of modifiers, type, and initializer?\\n",
+      "response": "Declaring an instance variable involves optional modifiers (like private), a type, and a name, with an optional initializer. For example, private String greeting = \"Hello, World!\" reserves a private String box named greeting, initially holding \"Hello, World!\". It’s like labeling a sealed envelope (modifier and name) that contains a specific type of document (String) and optionally preloading it with a letter. Any questions about variable declaration?"
+    },
+    {
+      "prompt": "Describe the structure of a method definition in Java.\\n",
+      "response": "A Java method definition includes modifiers (such as public or static), a return type, a method name, parameters in parentheses, and a body enclosed in braces. For example, public void greet() { … } defines a greet method that returns nothing. It’s like defining a function in a factory: you specify who can call it, what it returns, its name, inputs, and the steps it performs. Does that factory analogy help clarify method structure?"
+    },
+    {
+      "prompt": "What is the purpose of the main method in a Java application program?\\n",
+      "response": "The main method is the entry point of a Java application, declared exactly as public static void main(String args[]). The Java runtime calls it to start execution. It’s like the front door to a building: without it, visitors (the JVM) can’t enter. Would you like to explore why static and String[] are required?"
+    },
+    {
+      "prompt": "Explain how to create and use objects in Java, using HelloWorld as an example.\\n",
+      "response": "To create and use an object in Java, you first declare a variable of the class type, then instantiate it using the new keyword, and finally invoke its methods on that instance. For example, you might declare a HelloWorld variable, assign it a new HelloWorld object, and then call its greet method. It’s like ordering, assembling, and operating a machine: you reserve it, build it, and then switch it on. Any questions about this lifecycle?"
+    },
+    {
+      "prompt": "What is the role of packages and import statements in Java?\\n",
+      "response": "Packages group related classes into namespaces (like java.lang or java.awt), and import statements let you refer to classes by their simple names instead of full package paths. For instance, import javax.swing.JFrame lets you use JFrame rather than javax.swing.JFrame. It’s like having a contact list for phone numbers: packages are area codes, and import is saving the local number so you don’t dial the full code every time. Does that analogy help?"
+    },
+    {
+      "prompt": "What is a qualified name in Java and how does dot notation work?\\n",
+      "response": "A qualified name uses dot notation to specify context—such as package.class or object.method—with the last part as the referent. For example, java.lang.System.out.println refers to println on the out stream of System. It’s like an address: country.city.street.house—each part narrows down the location. Any questions about navigating with dot notation?"
+    },
+    {
+        "prompt": "Define what a literal is in Java.\\n",
+        "response": "A literal is a fixed value written directly in your code, like 45.2 for a double or \"Hello\" for a String. It’s like a street sign—it always points to the same location and never changes. Does that analogy help?"
+      },
+      {
+        "prompt": "Define a qualified name in Java and explain how dot notation works.\\n",
+        "response": "A qualified name uses dots to show context, such as package.ClassName or object.methodName, with the last segment as the actual referent. It’s like a full address—country.city.street.house—where each part narrows down the location. Any questions about navigating code with dot notation?"
+      },
+      {
+        "prompt": "What is the default constructor in Java and when does the compiler provide it?\\n",
+        "response": "If you don’t write any constructor, Java automatically gives your class a no‑argument constructor that does nothing special. It’s like a pre‑built starter kit you get when you buy furniture—you can assemble it immediately without any extra parts. Does that clarify how default constructors work?"
+      },
+      {
+        "prompt": "What is the Java Development Kit (JDK) and why is it essential for Java programming?\\n",
+        "response": "The JDK is a free collection of tools—compiler, runtime, and libraries—needed to write, compile, and run Java programs. It’s like a chef’s complete kitchen set: you need the stove (JVM), the recipe book (libraries), and the utensils (compiler) before you can cook. Would you like to know how to verify your JDK installation?"
+      },
+      {
+        "prompt": "Name some popular text editors and IDEs you can use to write Java code.\\n",
+        "response": "You can edit Java in plain text editors like vim, emacs, Notepad++, or BBEdit, or use full IDEs like Eclipse, NetBeans, IntelliJ, and jGrasp. Think of editors as pencils and paper for sketching code, and IDEs as smart whiteboards that help you organize, compile, and debug all in one place. Does that comparison help you choose an environment?"
+      },
+      {
+        "prompt": "What are the three basic steps to build and run a Java program using only the JDK?\\n",
+        "response": "First, edit the source in a text file; second, compile it with javac into bytecode; third, run it with java on the JVM. It’s like writing a letter (edit), translating it into braille (compile), and then reading it aloud on a braille reader (run). Would you like details on any of these steps?"
+      },
+      {
+        "prompt": "Explain Principle 1.6.2 about file naming for Java source files.\\n",
+        "response": "A public Java class named ClassName must reside in a file named ClassName.java, and only one public class per file is allowed. It’s like a book whose cover title must match the title page inside; a mismatch will confuse the compiler. Any questions about organizing your files?"
+      },
+      {
+        "prompt": "Why is case sensitivity important in Java, and what error might you see if you ignore it?\\n",
+        "response": "Java treats HelloWorld.java and helloworld.java as different names, so a mismatch leads to a “class not found” or “file not found” error. It’s like using uppercase for a street name on one sign and lowercase on another—you might end up on the wrong block. Does that illustrate why exact casing matters?"
+      },
+      {
+        "prompt": "How do you compile a Java program from the command line? Show the basic command.\\n",
+        "response": "Use javac followed by your source file, for example: javac HelloWorld.java. It’s like running a photocopier to convert your handwritten notes into a machine‑readable format. Would you like to see how to compile multiple files at once?"
+      },
+      {
+        "prompt": "What happens if javac detects an error in your code? Give an example.\\n",
+        "response": "The compiler prints an error message with file name, line number, and description, then aborts compilation. For instance, missing a semicolon yields “HelloWorld.java:11: error: ';' expected.” It’s like a spellchecker highlighting a typo in red and stopping until you fix it. Shall we discuss how to interpret these messages?"
+      },
+      {
+        "prompt": "After successful compilation, what file is created and where is it located?\\n",
+        "response": "A HelloWorld.class file appears in the same directory as HelloWorld.java by default. It’s like saving a PDF version of your document next to the original Word file. Any questions about managing your class files?"
+      },
+      {
+        "prompt": "How do you run a compiled Java program from the command line? Show the basic command.\\n",
+        "response": "Use the java command with the class name (without .class), for example: java HelloWorld. It’s akin to loading and playing a song by name rather than specifying the file extension. Would you like to explore command‑line options for java?"
+      },
+      {
+        "prompt": "Why is Java bytecode considered platform independent? Provide an analogy.\\n",
+        "response": "Bytecode runs on any OS with a JVM, so you compile once and run anywhere. It’s like writing a universal recipe book that any chef with the right kitchen (JVM) can follow, regardless of country. Does that analogy clarify Java’s portability?"
+      },
+      {
+        "prompt": "Describe how to compile and run the HelloWorldCanvas program and how its output differs from the console version.\\n",
+        "response": "First, compile with javac HelloWorldCanvas.java, then execute with java HelloWorldCanvas. Instead of printing text to the console, it pops up a JFrame window showing “Hello, World!”. It’s like sending a text message versus displaying the same message on a billboard. Any thoughts on when to use canvas output?"
+      },
+      {
+        "prompt": "What role does the java command play when you run a Java application?\\n",
+        "response": "The java command loads the JVM into memory, then loads and executes the bytecode you compiled. It’s like starting an actor (JVM) and giving them a script (bytecode) to perform. Would you like to discuss JVM options for tuning performance?"
+      },
+      {
+        "prompt": "Who owns and maintains Java, and on which operating systems is it available?\\n",
+        "response": "Java is owned and maintained by Oracle and is freely available for Linux, Windows, and macOS. It’s like a universal appliance sold by one manufacturer that fits outlets in any household. Any questions about getting the right download for your OS?"
+      },
+      {
+        "prompt": "What is the Java version mentioned in this text, and why might version numbers matter?\\n",
+        "response": "The text refers to Java 18 as the current version. Version numbers are like car model years—each release brings new features, bug fixes, and performance improvements. Want to explore what’s new in Java 18?"
+      },
+      {
+        "prompt": "What’s the difference between editing Java code in a plain text editor versus using an Integrated Development Environment (IDE)?\\n",
+        "response": "A text editor is like writing on a notepad—you type code manually and use separate tools to compile and run. An IDE is like a smart workshop with built‑in tools (compiler, debugger, code hints) all in one place. Would you like tips on choosing between them?"
+      },
+      {
+        "prompt": "What does the Java Development Kit (JDK) include, and what must you provide separately?\\n",
+        "response": "The JDK bundles the compiler (javac), runtime (JVM), and core libraries—all free—but you still need your own text editor to write code. It’s like getting a kitchen with appliances but needing to supply your own cooking utensils. Any questions about setting up your toolkit?"
+      },
+      {
+        "prompt": "Name one online environment and two desktop editors mentioned for writing Java programs.\\n",
+        "response": "An online environment is Replit.com. Desktop editors include VSCode, vim, emacs, Notepad++, BBEdit, and TextEdit. Think of Replit as a cloud workshop and the others as local studios on your machine. Does that help you decide where to code?"
+      },
+      {
+        "prompt": "Explain the relationship between .java and .class files in Java development.\\n",
+        "response": "Source code is saved in a .java file, which you compile into a .class bytecode file of the same name. It’s like writing a recipe in a .doc and then converting it to a .pdf: the content matches, but the format changes. Any thoughts on organizing these files?"
+      },
+      {
+        "prompt": "What roles do the System and PrintStream classes play in Java programs?\\n",
+        "response": "System and PrintStream handle a program’s console I/O. The System class provides predefined PrintStream objects (out and err), and PrintStream offers methods to send data to those streams. It’s like having a PA system (PrintStream) plugged into a control panel (System) that broadcasts messages to the audience. Does that make sense?"
+      },
+      {
+        "prompt": "How does Java conceptualize input and output sources?\\n",
+        "response": "Java treats any I/O source or destination as a stream of bytes or characters that you insert into or extract from. It’s like water flowing through pipes—the pipe (stream) carries data to or from your program. Shall we discuss how to read from a stream next?"
+      },
+      {
+        "prompt": "Why are there no built‑in I/O commands or keywords in Java?\\n",
+        "response": "Instead of keywords, Java uses methods in the java.io package to perform I/O, promoting consistency and extensibility. It’s like using plugins in a media player rather than hard‑coding support for each file type. Would you like an example of an input method?"
+      },
+      {
+        "prompt": "How do you send a line of text to the console in Java?\\n",
+        "response": "You invoke the standard output stream’s \"print line\" operation with your message, e.g. pseudocode: OUTPUT_LINE(\"Hello, World\"). Think of it as sending a telegram: you give the message to the post office (output stream) and it delivers it, then starts a fresh line for the next dispatch. Any questions about that syntax?"
+      },
+      {
+        "prompt": "What is the PrintStream class and why is it considered Java’s “printing expert”?\\n",
+        "response": "PrintStream is a class in java.io that provides overloaded print and println methods for all data types. It’s called the printing expert because it formats and outputs data for you. It’s like having a typesetter who knows how to arrange text, numbers, and objects neatly on a page. Does that analogy help?"
+      },
+      {
+        "prompt": "How do you access the PrintStream objects provided by the System class?\\n",
+        "response": "You use System.out for standard output and System.err for error messages—both are public PrintStream instances. It’s like choosing between a green channel (out) for regular announcements and a red channel (err) for urgent alerts. Would you like an example of sending to the error stream?"
+      },
+      {
+        "prompt": "What’s the difference between the standard output and error streams in Java?\\n",
+        "response": "Standard output is for normal program messages, while the error stream is for error diagnostics. Separating them lets you redirect or filter errors independently. It’s like having two mailboxes—one for regular letters and one for priority notices. Any thoughts on when to use the error channel?"
+      },
+      {
+        "prompt": "Explain the difference between the print and println operations in PrintStream.\\n",
+        "response": "print outputs data without ending the line, whereas println adds a newline after the data. It’s like writing on a whiteboard: print is writing words in a continuous sentence, and println is hitting Enter to start a new line. Does that help clarify?"
+      },
+      {
+        "prompt": "What is a Java application program?\\n",
+        "response": "An application program is a self‑contained Java program that runs independently, starting at its main method.\\nPseudocode:\\n  START JVM\\n  INVOKE main()\\n  EXECUTE instructions\\nAnalogy: like a standalone appliance you plug in and it works by itself. Does that make sense?"
+      },
+      {
+        "prompt": "What is a compound statement (block) in Java?\\n",
+        "response": "A compound statement, or block, groups multiple statements between braces to form a single unit.\\nPseudocode:\\n  BEGIN BLOCK\\n    statement1\\n    statement2\\n  END BLOCK\\nAnalogy: like bundling a set of instructions into one chapter of a book. Any questions?"
+      },
+      {
+        "prompt": "What is a data type in Java?\\n",
+        "response": "A data type defines the kind of values a variable can hold and what operations are allowed.\\nPseudocode:\\n  DEFINE variable of TYPE\\nAnalogy: like choosing a container sized for either liquids or solids—you can’t mix them. Clear?"
+      },
+      {
+        "prompt": "What is a parameter in Java?\\n",
+        "response": "A parameter is a variable listed in a method’s definition that receives a value when the method is called.\\nPseudocode:\\n  DEFINE method(name)\\n    USE parameter name inside method\\nAnalogy: like specifying toppings when ordering a pizza—you pass details into the process. Questions?"
+      },
+      {
+        "prompt": "What is a primitive data type in Java?\\n",
+        "response": "A primitive data type is a basic built‑in type, like integer or boolean, that stores simple values directly.\\nPseudocode:\\n  DECLARE x AS int\\nAnalogy: like basic ingredients (salt, sugar) you use to build more complex recipes. Does that help?"
+      },
+      {
+        "prompt": "What is pseudocode and why is it useful?\\n",
+        "response": "Pseudocode is an informal, language‑agnostic description of an algorithm using plain English and structured steps.\\nPseudocode:\\n  FOR each item DO action END_FOR\\nAnalogy: like drafting instructions in plain language before translating into code. Clear?"
+      },
+      {
+        "prompt": "What does semantics mean in programming?\\n",
+        "response": "Semantics concerns the meaning of code—what each statement actually does at runtime.\\nPseudocode: none needed, it’s conceptual.\\nAnalogy: like the difference between the words on a page (syntax) and the story they tell (semantics). Any thoughts?"
+      },
+      {
+        "prompt": "What is stepwise refinement in program design?\\n",
+        "response": "Stepwise refinement breaks a problem into smaller subtasks, solving each in turn.\\nPseudocode:\\n  DEFINE Task\\n    SUBTASK A\\n    SUBTASK B\\n  END Task\\nAnalogy: like outlining a novel by chapters before writing each scene. Does that analogy work?"
+      },
+      {
+        "prompt": "What is syntax in programming?\\n",
+        "response": "Syntax are the rules governing how code must be written to compile.\\nPseudocode: none—syntax is the grammar of the language.\\nAnalogy: like grammar rules in a sentence; a missing comma can break meaning. Clear?"
+      },
+      {
+        "prompt": "What is an executable statement in Java?\\n",
+        "response": "An executable statement is a line of code that performs an action when the program runs.\\nPseudocode:\\n  EXECUTE actionStatement\\nAnalogy: like pressing ‘Enter’ to perform a command in a terminal. Any questions?"
+      },
+      {
+        "prompt": "What is an algorithm?\\n",
+        "response": "An algorithm is a step‑by‑step procedure for solving a problem.\\nPseudocode:\\n  STEP 1: do A\\n  STEP 2: do B until condition\\nAnalogy: like a recipe guiding you from raw ingredients to a finished dish. Does that help?"
+      },
+      {
+        "prompt": "How do syntax errors differ from semantic errors in Java?\\n",
+        "response": "A syntax error breaks the language rules and is caught by the compiler, while a semantic error follows syntax but produces incorrect behavior.\\nPseudocode example: none—conceptual.\\nAnalogy: syntax errors are typos in a sentence, semantics errors are a sentence that makes no sense. Clear?"
+      },
+      {
+        "prompt": "What are the rules for naming Java source and class files?\\n",
+        "response": "A public class must be in a file named ClassName.java; compiled bytecode goes to ClassName.class.\\nPseudocode:\\n  IF class IS public THEN filename = className + \".java\"\\nAnalogy: like a book’s cover title must match the title page inside. Questions?"
+      },
+      {
+        "prompt": "Summarize how Java programs are compiled and run.\\n",
+        "response": "Java source (.java) is compiled by javac into bytecode (.class), then executed on the JVM via java.\\nPseudocode:\\n  RUN javac source.java\\n  IF compileSuccess THEN RUN java sourceClass\\nAnalogy: translate a play script into stage directions (compile) and then perform it live (run). Any questions?"
+      },
+      {
+        "prompt": "What is an assignment statement in Java?\\n",
+        "response": "An assignment statement stores the value of an expression into a variable.\\nPseudocode:\\n  SET variable TO expression\\nAnalogy: like filling a labeled box with its contents—you're putting the result into the right container. Does that make sense?"
+      },
+      {
+        "prompt": "What is a comment in Java?\\n",
+        "response": "A comment is non‑executable text used to document code, ignored by the compiler.\\nPseudocode:\\n  COMMENT_START note COMMENT_END\\nAnalogy: like a sticky note on a blueprint—it doesn’t change the design but explains details. Clear?"
+      },
+      {
+        "prompt": "What is a declaration statement in Java?\\n",
+        "response": "A declaration statement reserves memory for a variable of a given type.\\nPseudocode:\\n  DECLARE variable OF type\\nAnalogy: like marking an empty shelf slot for a specific item—you reserve space before placing anything there. Any questions?"
+      },
+      {
+        "prompt": "What is a default constructor in Java?\\n",
+        "response": "A default constructor is an automatically provided no‑argument constructor when no constructors are defined.\\nPseudocode:\\n  IF no_constructor_defined THEN CREATE default_constructor()\\nAnalogy: like receiving a preassembled starter kit with no extra parts—you get a basic setup by default. Does that clarify?"
+      },
+      {
+        "prompt": "What is an expression in Java?\\n",
+        "response": "An expression is code that evaluates to a value at runtime.\\nPseudocode:\\n  COMPUTE value = operand1 OP operand2\\nAnalogy: like a math equation on paper—you calculate and get a result. Any thoughts?"
+      },
+      {
+        "prompt": "What is an identifier in Java?\\n",
+        "response": "An identifier is a name for classes, methods, or variables following naming rules.\\nPseudocode:\\n  IDENTIFIER := letter [ letter|digit|_ |$ ]*\\nAnalogy: like giving a street a unique name under city rules—you must follow the naming guidelines. Clear?"
+      },
+      {
+        "prompt": "What is a literal value in Java?\\n",
+        "response": "A literal value is a fixed value written directly in source code.\\nPseudocode:\\n  literal := number | \"text\" | true | false\\nAnalogy: like a road sign showing a speed limit—it always points to the same number. Does that help?"
+      },
+      {
+        "prompt": "What is object instantiation in Java?\\n",
+        "response": "Object instantiation is creating a new instance of a class at runtime.\\nPseudocode:\\n  variable = CREATE_NEW ClassName\\nAnalogy: like assembling a new appliance from a kit before you can use it. Any questions?"
+      },
+      {
+        "prompt": "What is an operator in Java?\\n",
+        "response": "An operator is a symbol that performs a specific computation or comparison.\\nPseudocode:\\n  result = operand1 OPERATOR operand2\\nAnalogy: like a kitchen tool (knife, mixer) applied to ingredients to produce a result. Clear?"
+      },
+      {
+        "prompt": "What is a package in Java?\\n",
+        "response": "A package is a namespace that groups related classes.\\nPseudocode:\\n  PACKAGE name { class1, class2, ... }\\nAnalogy: like a folder in a filing cabinet holding related documents. Any thoughts?"
+      },
+      {
+        "prompt": "What is a qualified name in Java?\\n",
+        "response": "A qualified name specifies context using dot notation: qualifier.elementName.\\nPseudocode:\\n  fullName = qualifier + \".\" + elementName\\nAnalogy: like a full postal address narrowing down from country to house number. Does that illustrate it?"
+      },
+      {
+        "prompt": "What is a statement in Java?\\n",
+        "response": "A statement is a complete unit of execution ending with a semicolon.\\nPseudocode:\\n  EXECUTE actionStatement;\\nAnalogy: like a complete sentence in prose—you end with a period so the reader knows you’re done. Clear?"
+      },
+      {
+        "prompt": "Explain the relationship between classes and objects in Java using an analogy.\\n",
+        "response": "A class is like a cookie cutter template, and an object is like an individual cookie shaped by that cutter.\\nPseudocode:\\n  DEFINE ClassName AS template\\n  CREATE_NEW instance FROM ClassName\\nAnalogy: the cookie cutter shapes each cookie, just as the class defines each object. Clear?"
+      },
+      {
+        "prompt": "Why is it helpful to use predefined Java library classes before creating your own?\\n",
+        "response": "Using predefined classes is like using store‑bought cookie cutters instead of making your own—saves time and effort.\\nPseudocode:\\n  IMPORT LibraryClass\\n  USE LibraryClass methods\\nAnalogy: bake more cookies faster by using existing tools. Any thoughts?"
+      },
+      {
+        "prompt": "What is a String object and what core data does it store?\\n",
+        "response": "A String object holds a character sequence and its length count.\\nPseudocode:\\n  OBJECT str OF_TYPE String\\n    HAS value[]\\n    HAS count\\nAnalogy: a labeled photo album (value) with a page count (count). Does that help?"
+      },
+      {
+        "prompt": "How do you invoke an instance method on a Java object?\\n",
+        "response": "You refer to the object, then the method name via dot notation.\\nPseudocode:\\n  RESULT = INVOKE objectName.methodName()\\nAnalogy: dialing an extension (method) on a phone system (object). Any questions?"
+      },
+      {
+        "prompt": "Describe how to declare a String variable and then create a new String object in two steps.\\n",
+        "response": "First declare the variable, then assign a new String instance to it.\\nPseudocode:\\n  DECLARE str AS String\\n  SET str TO CREATE_NEW String(\"Hello\")\\nAnalogy: reserve an empty cookie jar, then fill it with cookies. Clear?"
+      },
+      {
+        "prompt": "How can you combine declaration and object creation into one statement?\\n",
+        "response": "You declare the variable and instantiate the object in a single line.\\nPseudocode:\\n  DECLARE_AND_CREATE str AS String WITH(\"Hello\")\\nAnalogy: buy a pre‑filled cookie jar in one go. Any thoughts?"
+      },
+      {
+        "prompt": "How do you obtain the number of characters in a String object?\\n",
+        "response": "Invoke its length method and use the returned count.\\nPseudocode:\\n  length = INVOKE str.length()\\nAnalogy: glance at the page count on a book to know how many pages it has. Does that make sense?"
+      },
+      {
+        "prompt": "What is the empty string and how do you create it?\\n",
+        "response": "The empty string has no characters (count zero). You create it with a no‑argument constructor.\\nPseudocode:\\n  DECLARE_AND_CREATE str AS String WITH_NO_ARGS\\nAnalogy: an empty cookie jar with zero cookies. Clear?"
+      },
+      {
+        "prompt": "How do you assign initial values to primitive variables versus object variables in Java?\\n",
+        "response": "Primitive variables get values with direct assignment, e.g. ASSIGN num TO 5. Object variables require invoking a constructor, e.g. ASSIGN s TO CREATE_NEW String('hello').\\nAnalogy: filling a box directly (primitive) versus ordering and assembling a kit before use (object). Clear?"
+      },
+      {
+        "prompt": "How does Java store primitive variables and object variables differently in memory?\\n",
+        "response": "A primitive variable holds its actual value in its memory slot; an object variable holds a reference (pointer) to an object stored elsewhere.\\nAnalogy: a labeled jar containing candy (primitive) versus a label pointing to a candy store across town (object). Any questions?"
+      },
+      {
+        "prompt": "What default values are assigned to int, boolean, and object variables when declared but not initialized?\\n",
+        "response": "An int variable defaults to 0; a boolean defaults to false; an object variable defaults to null (pointing to nothing).\\nAnalogy: an empty water tank is read as zero liters, a light switch off is false, and an unconnected plug goes nowhere (null). Does that help?"
+      },
+      {
+        "prompt": "Why do primitive types and object types have different initialization rules in Java?\\n",
+        "response": "Primitives have fixed sizes known at compile time, so Java can reserve and zero‑initialize them. Objects vary in size and must be constructed at runtime, so variables hold references.\\nAnalogy: fixed‑size boxes can be pre‑filled, but custom crates must be built and then referenced. Any thoughts?"
+      },
+      {
+        "prompt": "What does null represent for an object variable in Java?\\n",
+        "response": "Null indicates the variable refers to no object—it has no address.\\nAnalogy: an empty map marker with no pin means 'no location chosen'. Shall we discuss how to guard against null?"
+      },
+      {
+        "prompt": "How do you concatenate two String objects using a method in Java?\\n",
+        "response": "Invoke the concat operation on one string with the other as argument: SET result TO INVOKE s1.concat(s2).\\nAnalogy: gluing two paper strips end‑to‑end—first strip calls for the second. Clear?"
+      },
+      {
+        "prompt": "What shortcut does Java provide for string concatenation without using a method call?\\n",
+        "response": "You can use the plus operator: SET result TO s1 + s2.\\nAnalogy: using a stapler (+) instead of glue (concat) to join pages. Does that make sense?"
+      },
+      {
+        "prompt": "How do you compare two String objects for content equality in Java?\\n",
+        "response": "Invoke the equals operation: SET isEqual TO INVOKE s1.equals(s2), which returns true if characters match.\\nAnalogy: comparing two stamped letters to see if the exact message matches. Any questions?"
+      },
+      {
+        "prompt": "What happens if you invoke a method on a String variable that is null?\\n",
+        "response": "The program throws a null pointer exception at runtime because there's no object to receive the message.\\nAnalogy: dialing an extension on a disconnected phone line—nothing answers and you get an error tone. Clear?"
+      },
+      {
+        "prompt": "How is the empty string different from a null String variable in Java?\\n",
+        "response": "The empty string is a valid String object with zero characters; null means no String object exists.\\nAnalogy: an empty cookie jar (zero cookies) versus an unplaced jar with no jar at all (null). Does that help illustrate?"
+      },
+      {
+        "prompt": "How can you create a String object using a literal instead of the constructor?\\n",
+        "response": "You assign the literal directly to the variable: SET s TO \"Hello\".\\nAnalogy: like grabbing a pre‑made cookie from a package instead of baking one yourself. Clear?"
+      },
+      {
+        "prompt": "What is the difference between creating a String with new versus using a literal?\\n",
+        "response": "new allocates a fresh object each time, while a literal may reuse an existing instance from the string pool.\\nAnalogy: buying a custom‑made tool (new) versus picking a shared one from a communal toolbox (literal). Any questions?"
+      },
+      {
+        "prompt": "What is the purpose of a class definition in Java?\\n",
+        "response": "A class definition encapsulates data (attributes) and behavior (methods) into a reusable template.\\nPseudocode:\\n  DEFINE ClassName AS blueprint WITH attributes AND methods\\nAnalogy: like a cookie cutter that shapes each cookie from dough—once built, you use it to create many cookies. Clear?"
+      },
+      {
+        "prompt": "What two kinds of elements does a Java class contain?\\n",
+        "response": "A class contains variables to store its data and methods to process that data.\\nPseudocode:\\n  CLASS_CONTAINS [variables, methods]\\nAnalogy: ingredients (variables) and recipes (methods) in a cookbook. Any questions?"
+      },
+      {
+        "prompt": "What five basic questions should you answer when designing an object?\\n",
+        "response": "1. What role will the object perform?\\n2. What data will it need?\\n3. What actions will it take?\\n4. What interface will it present?\\n5. What information will it hide?\\nAnalogy: like hiring a new team member—you define their job (role), what tools they need (data), their tasks (actions), how they communicate (interface), and what’s confidential (hidden). Does that help?"
+      },{
+        "prompt": "What are access modifiers and why declare instance variables as private?\\n",
+        "response": "Access modifiers (private, public) control who can see or use class elements. Making variables private enforces information hiding, preventing direct external access.\\nPseudocode:\\n  APPLY private TO instanceVariables\\nAnalogy: like storing valuables in a locked safe—only the owner (class methods) can open it. Any thoughts?"
+      },
+      {
+        "prompt": "Why should methods be declared public in Java classes?\\n",
+        "response": "Public methods form the object’s interface, allowing other objects to interact with it safely without exposing its internals.\\nPseudocode:\\n  APPLY public TO methodsNeededOutside\\nAnalogy: like having a lobby entrance (public methods) while keeping private rooms locked. Clear?"
+      },{
+        "prompt": "What are the three basic steps when writing a Java program?\\n",
+        "response": "1. Define classes (blueprints)\\n2. Create objects (instances)\\n3. Use objects (call methods)\\nPseudocode:\\n  DEFINE classes\\n  CREATE instances FROM classes\\n  USE instances TO perform tasks\\nAnalogy: like designing a building (define), constructing it (create), and then moving people in (use). Clear?"
+      },
+      {
+        "prompt": "What’s the difference between a method definition and a method call?\\n",
+        "response": "A method definition specifies what the method does; a method call executes that behavior on an object.\\nPseudocode:\\n  DEFINE methodName() { … }  // definition\\n  INVOKE object.methodName()    // call\\nAnalogy: like writing instructions for a machine (definition) versus pressing Start to run it (call). Any thoughts?"
+      },
+      {
+        "prompt": "What is the java.util.Scanner class used for in Java?\\n",
+        "response": "Scanner handles input streams (like keyboard input) by parsing data from System.in.\\nPseudocode:\\n  IMPORT Scanner FROM java.util\\n  DEFINE sc AS Scanner WITH(System.in)\\nAnalogy: like a receptionist who listens at the door (System.in) and parses each visitor’s message. Clear?"
+      },
+      {
+        "prompt": "How do you import the Scanner class for use in a Java program?\\n",
+        "response": "You bring Scanner into scope from the java.util package.\\nPseudocode:\\n  IMPORT java.util.Scanner\\nAnalogy: like adding a new tool to your toolbox before you can use it. Any questions?"
+      },
+      {
+        "prompt": "How do you instantiate a Scanner object to read from the keyboard?\\n",
+        "response": "You create a Scanner linked to System.in.\\nPseudocode:\\n  DECLARE sc AS Scanner\\n  SET sc TO NEW Scanner(System.in)\\nAnalogy: like connecting a microphone to a PA system so you can hear audience input. Does that make sense?"
+      },
+      {
+        "prompt": "How do you read an integer from the user using Scanner?\\n",
+        "response": "You call nextInt() on your Scanner instance, which blocks until an integer is entered.\\nPseudocode:\\n  PROMPT user\\n  SET num TO sc.nextInt()\\nAnalogy: like a cashier scanning an item barcode and waiting until you present a valid product. Clear?"
+      },
+      {
+        "prompt": "How does Scanner behave when reading input like nextInt()?\\n",
+        "response": "It pauses program execution until the user types the expected data followed by Enter.\\nPseudocode:\\n  WAIT_FOR sc.nextInt()\\nAnalogy: like a toll booth barrier that stays down until you pay the exact fare. Any thoughts?"
+      },
+      {
+        "prompt": "How can you read different data types such as doubles or words with Scanner?\\n",
+        "response": "Use methods like nextDouble() for real numbers or next() for single tokens.\\nPseudocode:\\n  SET d TO sc.nextDouble()\\n  SET word TO sc.next()\\nAnalogy: like selecting different lenses on a camera to capture numbers or words. Questions?"
+      },
+      {
+        "prompt": "What is Scanner’s default delimiter behavior, and how does it affect reading strings?\\n",
+        "response": "By default, Scanner splits input at white space, so next() stops at spaces.\\nPseudocode:\\n  DEFAULT_DELIMITER = whitespace\\n  sc.next() RETURNS token_up_to_space\\nAnalogy: like reading a sentence only up to the first comma and ignoring the rest. Clear?"
+      },
+      {
+        "prompt": "How do you configure Scanner to read entire lines including spaces?\\n",
+        "response": "You change its delimiter to only break on line breaks.\\nPseudocode:\\n  SET sc TO sc.useDelimiter(\"\\r\\n\")\\nAnalogy: like changing your sentence parser to only stop at full stops instead of commas. Any questions?"
+      },
+      {
+        "prompt": "What happens if you call nextInt() but the user types non‑numeric text?\\n",
+        "response": "Scanner throws a runtime error and the program terminates with an exception.\\nPseudocode:\\n  TRY sc.nextInt() CATCH InputMismatchException\\nAnalogy: like a vending machine rejecting a coin of the wrong size and flashing an error. Does that illustrate?"
+      },
+      {
+        "prompt": "How would you modify TestScanner to read a decimal (real) number instead of an integer?\\n",
+        "response": "Use the real‑number input method in place of the integer method.\\nPseudocode:\\n  SET value TO sc.nextDouble()\\nAnalogy: like switching from scanning barcodes to weighing produce on a scale. Clear?"
+      },
+      {
+        "prompt": "Why does Scanner’s exception handling matter, and when will it be addressed?\\n",
+        "response": "Invalid input triggers exceptions, so robust programs must catch them; we’ll cover this in Chapter 11.\\nPseudocode:\\n  TRY inputMethod() CATCH ExceptionType\\nAnalogy: like installing safety nets under a trapeze artist—important but covered later. Any thoughts?"
+      }
+
+
+  ]
