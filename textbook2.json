@@ -432,6 +432,181 @@
       {
         "prompt": "Why does Scanner’s exception handling matter, and when will it be addressed?\\n",
         "response": "Invalid input triggers exceptions, so robust programs must catch them; we’ll cover this in Chapter 11.\\nPseudocode:\\n  TRY inputMethod() CATCH ExceptionType\\nAnalogy: like installing safety nets under a trapeze artist—important but covered later. Any thoughts?"
+      },
+      {
+        "prompt": "What is an access modifier in Java?\\n",
+        "response": "An access modifier controls visibility of classes, methods, and variables (e.g., public, private).\\nPseudocode:\\n  APPLY modifier TO element\\nAnalogy: like a security badge level—public areas are open to all, private rooms require clearance. Clear?"
+      },
+      {
+        "prompt": "What happens during a method call and return in Java?\\n",
+        "response": "A method call transfers control to the method’s code, and a return hands control (and possibly a value) back to the caller.\\nPseudocode:\\n  CALL methodName()\\n  EXECUTE methodBody\\n  RETURN result TO caller\\nAnalogy: like ordering food at a counter (call), having the chef prepare it (execute), then picking it up (return). Does that make sense?"
+      },
+      {
+        "prompt": "What is a class-level variable in Java?\\n",
+        "response": "A class-level (static) variable belongs to the class itself rather than any instance, shared by all objects.\\nPseudocode:\\n  CLASS variable STATIC Type name\\nAnalogy: like a billboard sign shared by all stores of a chain, not unique to each location. Any questions?"
+      },
+      {
+        "prompt": "What does null pointer mean in Java?\\n",
+        "response": "A null pointer is a reference that points to nothing instead of an object.\\nPseudocode:\\n  DECLARE refVar AS Type\n  SET refVar TO null\\nAnalogy: like an address label with no house—mail has nowhere to go. Clear?"
+      },
+      {
+        "prompt": "What is a null pointer exception in Java?\\n",
+        "response": "A null pointer exception occurs when you try to use an object reference that is null.\\nPseudocode:\\n  IF refVar IS null THEN error on refVar.method()\\nAnalogy: like dialing a disconnected phone number and hearing a dead line. Any thoughts?"
+      },
+      {
+        "prompt": "What is a pointer/reference in Java?\\n",
+        "response": "A reference (pointer) is a variable that holds the memory address of an object.\\nPseudocode:\\n  objectRef = ADDRESS_OF objectInstance\\nAnalogy: like a map coordinate pointing to a landmark rather than the landmark itself. Does that help?"
+      },
+      {
+        "prompt": "What is flow of control in a Java program?\\n",
+        "response": "Flow of control is the order in which statements and methods execute (e.g., sequence, loops, conditionals).\\nPseudocode:\\n  START\n  IF condition THEN branchA ELSE branchB\n  LOOP until done\nAnalogy: like following a choose-your-own-adventure path in a book. Clear?"
+      },
+      {
+        "prompt": "What is a reference variable in Java?\\n",
+        "response": "A reference variable holds the address of an object instance rather than the object’s data.\\nPseudocode:\\n  DECLARE refVar AS ClassType\n  SET refVar TO NEW ClassType()\nAnalogy: like a pointer arrow on a map leading to a building’s location. Any questions?"
+      },
+      {
+        "prompt": "What is an interface in Java?\\n",
+        "response": "An interface defines a set of public method signatures without implementations, serving as a contract.\\nPseudocode:\\n  INTERFACE InterfaceName {\n    methodSignature();\n  }\nAnalogy: like a plug socket standard—any device that matches can connect even if internals differ. Does that illustrate?"
+      },
+      {
+        "prompt": "What is the static modifier in Java?\\n",
+        "response": "The static modifier associates a variable or method with the class itself rather than instances.\\nPseudocode:\\n  STATIC Type name\n  STATIC method() { … }\nAnalogy: like a team captain’s rule—shared by the whole team, not by individual players. Clear?"
+      },
+      {
+        "prompt": "What is a local variable in Java?\\n",
+        "response": "A local variable is declared within a method or block and exists only during its execution.\\nPseudocode:\\n  IN method() {\n    DECLARE localVar AS Type\n    USE localVar\n  }\nAnalogy: like a temporary shopping list you write and discard inside one trip. Any thoughts?"
+      },
+      {
+        "prompt": "What is a user interface in Java programs?\\n",
+        "response": "A user interface object handles interaction between the program and its user (e.g., console or GUI).\\nPseudocode:\\n  DEFINE UIObject WITH methods promptUser(), displayOutput()\nAnalogy: like a storefront clerk who takes orders and hands out products. Does that help?"
+      },
+      {
+        "prompt": "What is an accessor method in Java?\\n",
+        "response": "An accessor method is a public method that retrieves the value of a private instance variable.\\nPseudocode:\\n  DEFINE getVarName() RETURNS varName\\nAnalogy: like using a library’s catalog lookup to find a book title without opening any books. Clear?"
+      },
+      {
+        "prompt": "What is a mutator method in Java?\\n",
+        "response": "A mutator method is a public method that modifies one or more private instance variables.\\nPseudocode:\\n  DEFINE setVarName(value) ASSIGN varName = value\\nAnalogy: like an editor updating the text of a document through approved changes rather than editing the file directly. Any questions?"
+      },
+      {
+        "prompt": "What is the principle behind providing accessor and mutator methods?\\n",
+        "response": "Accessor and mutator methods enforce information hiding by controlling how instance variables are read and modified.\\nPseudocode:\\n  USE public getVarName() TO READ varName\\n  USE public setVarName(value) TO WRITE varName\\nAnalogy: like an ATM that lets you check or deposit money without opening the bank vault. Does that make sense?"
+      },
+      {
+        "prompt": "What are the two steps to use a method in Java?\\n",
+        "response": "First define the method with its signature and body; then call it on an object with appropriate arguments.\\nPseudocode:\\n  DEFINE methodName(params) { body }\\n  CALL object.methodName(args)\\nAnalogy: like writing down a recipe (definition) and then following it in the kitchen (call). Clear?"
+      },
+      {
+        "prompt": "How can you refactor multiple similar methods into one using a parameter?\\n",
+        "response": "You replace repetitive methods (takeOne, takeTwo, takeThree) with a single method that accepts a numeric parameter to generalize the behavior.\\nPseudocode:\\n  DEFINE takeSticks(count) { nSticks -= count; togglePlayer(); }\\n  CALL takeSticks(2) // same as takeTwo()\\nAnalogy: like using one universal tool adjustable to different sizes instead of carrying three fixed wrenches. Any thoughts?"
+      },
+      {
+        "prompt": "What is a formal parameter in Java?\\n",
+        "response": "A formal parameter is a variable declared in a method’s signature that holds the value passed by the caller.\\nPseudocode:\\n  DEFINE method(type paramName) { use paramName }\\nAnalogy: like a labeled slot on a machine where you insert the correct ingredient before starting it. Does that help?"
+      },
+      {
+        "prompt": "How do you define a method with multiple parameters in Java?\\n",
+        "response": "List each parameter’s type and name separated by commas in the method header.\\nPseudocode:\\n  DEFINE setGame(sticks, starter) { nSticks = sticks; player = starter }\\nAnalogy: like ordering a custom sandwich by specifying both bread type and filling in one instruction. Clear?"
+      },
+      {
+        "prompt": "How would you define a setter method for initializing the number of sticks in OneRowNim?\\n",
+        "response": "You create a mutator that assigns the provided value to nSticks.\\nPseudocode:\\n  DEFINE setSticks(count) ASSIGN nSticks = count\\nAnalogy: like setting the starting number of pieces on a game board before play begins. Any questions?"
+      },
+      {
+        "prompt": "What is local scope in Java?\\n",
+        "response": "Local scope refers to the region within a method or block where parameters and variables declared there can be used.\\nPseudocode:\\n  BEGIN method(){\\n    DECLARE localVar\\n    USE localVar\\n  } END\\nAnalogy: like a sticky note you place inside a single room—once you leave, you can’t see it anymore. Clear?"
+      },
+      {
+        "prompt": "What is class scope in Java?\\n",
+        "response": "Class scope means instance variables, class variables, and methods are accessible anywhere in the class body.\\nPseudocode:\\n  CLASS MyClass{\\n    DECLARE instanceVar\\n    METHOD doSomething(){ USE instanceVar }\\n  }\\nAnalogy: like tools in a shared workshop—you can grab any tool from anywhere inside the shop. Any questions?"
+      },
+      {
+        "prompt": "What is a scope error in Java?\\n",
+        "response": "A scope error occurs when you try to use a local variable or parameter outside of its defined method or block.\\nPseudocode:\\n  IF outsideMethod THEN USE localVar -> SYNTAX_ERROR\\nAnalogy: like trying to use a kitchen knife in the living room—out of its designated area. Does that illustrate it?"
+      },
+      {
+        "prompt": "How do you access instance variables or methods inside a static (class) method?\\n",
+        "response": "You must first create an instance and then refer to its members via dot notation.\\nPseudocode:\\n  SET obj = NEW MyClass()\\n  CALL obj.instanceMethod()\\nAnalogy: like borrowing a specific car from the lot before you can drive it—you can’t drive “car” without picking one. Clear?"
+      },
+      {
+        "prompt": "What restriction applies when initializing one class‑level variable using another?\\n",
+        "response": "You can only use another class‑level variable in an initializer if that variable is declared earlier in the class.\\nPseudocode:\\n  DECLARE firstVar = 5\\n  DECLARE secondVar = firstVar + 1\\nAnalogy: like defining the flour quantity before you calculate the sugar amount in a recipe. Any thoughts?"
+      },
+      {
+        "prompt": "When must you use qualified names in Java, and what does that mean?\\n",
+        "response": "Inside static methods you cannot directly use instance members; you must use qualified names (objectName.member) to refer to them.\\nPseudocode:\\n  SET game = NEW Game()\\n  CALL game.playTurn()\\nAnalogy: like specifying full postal address when mailing—street and house number—so delivery (method call) reaches the right place. Does that help?"
+      },
+      {
+        "prompt": "What is the difference between a parameter and an argument in Java?\\n",
+        "response": "A parameter is the variable declared in the method signature, while an argument is the actual value passed in when calling the method.\\nPseudocode:\\n  DEFINE method(parameter) { … }  // parameter\\n  CALL method(argument)               // argument\\nAnalogy: like a parking space labeled “A1” (parameter) and the car you park there (argument). Does that make sense?"
+      },
+      {
+        "prompt": "Can you pass a variable or expression to a method instead of a literal?\\n",
+        "response": "Yes—you can pass any expression or variable that evaluates to the required type. For example: CALL game.takeSticks(val) where val = 7 - 5.\\nPseudocode:\\n  SET val TO 7 - 5\\n  CALL game.takeSticks(val)  // passes 2\\nAnalogy: like giving instructions “take X steps” where X comes from a calculation. Any questions?"
+      },
+      {
+        "prompt": "What error occurs if you pass the wrong type to a method in Java?\\n",
+        "response": "You get a type error (syntax error) when an argument’s type doesn’t match its parameter’s type, e.g. passing \"3\" (String) to takeSticks(int).\\nPseudocode:\\n  CALL game.takeSticks(\"3\")  // ERROR: String vs int\\nAnalogy: like trying to insert a square peg into a round hole—it simply won’t fit. Clear?"
+      },
+      {
+        "prompt": "Why is using parameters better than writing many similar methods?\\n",
+        "response": "Parameters let you generalize behavior in one method rather than duplicating code for each case, following the generality principle.\\nPseudocode:\\n  DEFINE takeSticks(num) { … }  // covers 1,2,3,...\\nAnalogy: like using an adjustable wrench instead of carrying three fixed‑size wrenches. Any thoughts?"
+      },
+      {
+        "prompt": "What is a constructor in Java?\\n",
+        "response": "A constructor creates an instance of a class and initializes its instance variables.\\nPseudocode:\\n  DEFINE ClassName(parameters?) { initialization statements }\\nAnalogy: like a factory’s assembly line that builds and configures a new car before delivery. Clear?"
+      },
+      {
+        "prompt": "How does a constructor differ from a regular method in Java?\\n",
+        "response": "A constructor has no return type and shares the class’s name, whereas methods have distinct names and return types.\\nPseudocode:\\n  IF name == className AND no returnType THEN constructor ELSE method\\nAnalogy: like a bakery’s special ‘start‑up’ recipe versus everyday cooking instructions. Any questions?"
+      },
+      {
+        "prompt": "How do you declare a default constructor for the OneRowNim class?\\n",
+        "response": "You write a public method named OneRowNim with no return type and set initial values inside.\\nPseudocode:\\n  DEFINE OneRowNim() { nSticks = 7; player = 1 }\\nAnalogy: like presetting a game board with 7 pieces and choosing player 1 to start. Clear?"
+      },
+      {
+        "prompt": "How are constructors invoked when creating an object?\\n",
+        "response": "Constructors run as part of the new expression.\\nPseudocode:\\n  SET obj TO NEW ClassName(args?)\\nAnalogy: like pressing \"Start Production\" and watching the factory assemble a new item instantly. Does that illustrate?"
+      },
+      {
+        "prompt": "What does Principle 3.3.1 say about constructors?\\n",
+        "response": "Constructors provide a flexible way to initialize an object’s instance variables at creation time.\\nPseudocode:\\n  USE constructor TO set initial state dynamically\\nAnalogy: like customizing a laptop’s RAM and storage before it leaves the factory. Any thoughts?"
+      },
+      {
+        "prompt": "Why can’t constructors have a return type in Java?\\n",
+        "response": "Constructors don’t return values; they set up the new object, so declaring a return type is disallowed.\\nPseudocode:\\n  IF hasReturnType THEN SYNTAX_ERROR\\nAnalogy: like a ticket validator—you drop in a ticket but don’t get anything back from the slot. Clear?"
+      },
+      {
+        "prompt": "What is Principle 3.3.3 about return types?\\n",
+        "response": "All method definitions except constructors must declare a return type.\\nPseudocode:\\n  IF methodName == className THEN noReturnType ELSE requireReturnType\\nAnalogy: like VIP vs general admission—only VIP passes skip the usual ticket checks. Does that help?"
+      },
+      {
+        "prompt": "How do you define a parameterized constructor for OneRowNim?\\n",
+        "response": "You add an int parameter to set initial sticks at creation.\\nPseudocode:\\n  DEFINE OneRowNim(sticks) { nSticks = sticks }\\nAnalogy: like ordering a custom number of cookies baked fresh on demand. Clear?"
+      },
+      {
+        "prompt": "How do you instantiate OneRowNim with a specific starting stick count?\\n",
+        "response": "You supply the stick count to new.\\nPseudocode:\\n  SET game TO NEW OneRowNim(21)\\n  SET game2 TO NEW OneRowNim(13)\\nAnalogy: like selecting 21 or 13 pieces when checking out a candy dispenser. Any questions?"
+      },
+      {
+        "prompt": "When should you use a constructor instead of a mutator method to set initial values?\\n",
+        "response": "Use a constructor for one‑time setup at creation; use mutators for later changes.\\nPseudocode:\\n  ON creation: new Class(arg)  // constructor\\n  LATER: object.setVar(val)     // mutator\\nAnalogy: like choosing seat assignment when booking a flight (constructor) versus changing it at check‑in (mutator). Does that make sense?"
+      },{
+        "prompt": "What happens if you define a class without any constructors in Java?\\n",
+        "response": "Java automatically supplies a no‑argument default constructor that creates an object with no additional initialization.\\nPseudocode:\\n  IF classHasNoConstructor THEN\\n    CREATE defaultConstructor() { }\\n  END\\nAnalogy: like a bakery recipe that comes with a plain dough formula if you don’t specify one yourself. Clear?"
+      },
+      {
+        "prompt": "What is constructor overloading in Java?\\n",
+        "response": "Constructor overloading is defining multiple constructors with the same name but different parameter lists, letting you create objects in different ways.\\nPseudocode:\\n  DEFINE ClassName() { }\\n  DEFINE ClassName(param1) { … }\\n  DEFINE ClassName(param1, param2) { … }\\nAnalogy: like having several assembly options for a product—basic, with extras, or fully customized. Any questions?"
+      },
+      {
+        "prompt": "What constitutes a method (or constructor) signature in Java?\\n",
+        "response": "A signature includes the method’s name and the number, types, and order of its parameters; constructors follow the same rule.\\nPseudocode:\\n  signature = name + '(' + paramTypes + ')'\n  // e.g., ClassName(), ClassName(int), ClassName(int, int)\nAnalogy: like a phone number that combines area code and local number to uniquely identify a line. Does that help?"
+      },
+      {
+        "prompt": "What error occurs if you call a constructor with the wrong number or types of arguments?\\n",
+        "response": "You get a compile‑time error because no constructor signature matches the call.\\nPseudocode:\\n  CALL NEW ClassName(wrongArgs) -> SYNTAX_ERROR: no matching constructor\\nAnalogy: like dialing a phone number that doesn’t exist—you get a busy signal or error tone. Any thoughts?"
       }
 
 
