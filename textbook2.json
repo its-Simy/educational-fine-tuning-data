@@ -607,7 +607,669 @@
       {
         "prompt": "What error occurs if you call a constructor with the wrong number or types of arguments?\\n",
         "response": "You get a compile‑time error because no constructor signature matches the call.\\nPseudocode:\\n  CALL NEW ClassName(wrongArgs) -> SYNTAX_ERROR: no matching constructor\\nAnalogy: like dialing a phone number that doesn’t exist—you get a busy signal or error tone. Any thoughts?"
+      },
+      {
+        "prompt": "How do you use the return value of a non-void method in Java?\\n",
+        "response": "A non-void call acts as an expression yielding its return. You can assign it, use it in calculations, or pass it on.\\nPseudocode:\\n  SET x TO object.method()\\n  SET y TO object.method() + 5\\n  CALL other(object.method())\\nAnalogy: like taking the output of a vending machine (value) and using it in subsequent operations. Clear?"
+      },
+      {
+        "prompt": "What happens if you call a value-returning method and ignore its return?\\n",
+        "response": "The method still executes, but its value is discarded. Useful if it has side effects.\\nPseudocode:\\n  CALL object.method()  // return unused\\nAnalogy: like pressing a button that triggers a light change but not noting the message it flashes. Any thoughts?"
+      },
+      {
+        "prompt": "What happens when you pass a primitive type (e.g., int) to a method in Java?\\n",
+        "response": "The method receives a copy of the primitive value, so changes inside the method don’t affect the original.\\nPseudocode:\\n  CALL myMethod(k)\\n    COPY valueOf(k) TO n\\n    MODIFY n\\n  RETURN\\nAnalogy: like photocopying a document—writing on the copy doesn’t change the original."
+      },
+      {
+        "prompt": "Why does modifying a primitive parameter inside a method not change the original variable?\\n",
+        "response": "Because only a copy of the value is passed, the original remains intact when the method returns.\\nPseudocode:\\n  n = kCopy; n = 100; // k still holds its old value\\nAnalogy: like tasting a sauce sample in a ladle—you alter the sample but the main pot stays the same."
+      },
+      {
+        "prompt": "What happens when you pass a reference type (e.g., an object) to a method in Java?\\n",
+        "response": "The method receives a copy of the reference (pointer) to the same object, so it can modify the actual object’s state.\\nPseudocode:\\n  CALL myMethod(objRef)\\n    COPY objRef TO localRef\\n    localRef.modifyState()\\n  RETURN\\nAnalogy: like giving someone the map coordinates to a house—both pointers lead to the same home."
+      },
+      {
+        "prompt": "Why can methods change the original object when passed a reference parameter?\\n",
+        "response": "Since the reference points to the same object in memory, any state changes persist after the method returns.\\nPseudocode:\\n  localRef.field = newValue; // affects shared object\\nAnalogy: like two people sharing the same document file—edits by one are seen by the other."
+      },
+      {
+        "prompt": "What is a side effect in the context of passing references to methods?\\n",
+        "response": "A side effect is an unintended change to an object’s state caused by a method operating on a reference parameter.\\nPseudocode:\\n  CALL methodThatAlters(objRef) // may change object unexpectedly\\nAnalogy: like borrowing a friend’s bike to test the brakes but accidentally scratching the paint—you altered something you didn’t mean to."
+      },
+      {
+        "prompt": "What is the syntax and behavior of a simple if statement in Java?\\n",
+        "response": "An if statement evaluates a boolean condition and executes its contained statement or block only if the condition is true.\\nPseudocode:\\n  IF (condition) THEN\\n    executeStatement\\n  END_IF\\nAnalogy: like a security guard who only opens the gate when the guest’s name is on the approved list."
+      },
+      {
+        "prompt": "Which relational operators can you use in Java if conditions?\\n",
+        "response": "You can use ==, !=, <, >, <=, >= to compare values or expressions, producing a boolean result.\\nPseudocode:\\n  IF (x <= 0) THEN …\\n  IF (player != 1) THEN …\\nAnalogy: like traffic signals comparing your speed against the limit to decide if you must slow down or not."
+      },
+      {
+        "prompt": "How does a return statement affect flow of control inside a method?\\n",
+        "response": "A return immediately exits the method and hands back the specified value to the caller.\\nPseudocode:\\n  IF (condition) THEN\\n    RETURN value\\n  END_IF\\n  // code here runs only if condition was false\\nAnalogy: like pressing eject in a video player—the moment you press it, playback stops and you’re back to the menu."
+      },
+      {
+        "prompt": "What is a while loop in Java, and why would you use it?\\n",
+        "response": "A while loop repeatedly executes its body as long as a boolean condition remains true.\\nPseudocode:\\n  WHILE (condition) DO\\n    executeBlock\\n  END_WHILE\\nAnalogy: like a baker continuing to roll out dough until there’s no dough left."
+      },
+      {
+        "prompt": "How do you include multiple statements in the body of an if statement?\\n",
+        "response": "Enclose the statements in braces to form a compound statement. All statements inside the braces execute if the condition is true.\\nPseudocode:\\n  IF (condition) THEN\\n  {\\n    statement1;\\n    statement2;\\n    statement3;\\n  }\\nAnalogy: like grouping several tasks into one to-do list—you only tackle them when you decide to start that list. Clear?"
+      },
+      {
+        "prompt": "What error can occur if you forget braces around multiple statements in an if?\\n",
+        "response": "Only the first statement is treated as part of the if, and later lines run unconditionally, causing logical bugs.\\nPseudocode:\\n  IF (cond) statementA;\\n  statementB;  // always runs\\nAnalogy: like labeling only the first dish on a menu special—customers still order the others even when the special isn’t active. Any thoughts?"
+      },
+      {
+        "prompt": "What is the syntax and behavior of an if-else statement in Java?\\n",
+        "response": "An if-else evaluates a boolean and executes one of two branches: \\nPseudocode:\\n  IF (condition) THEN\\n    executeTrueBranch;\\n  ELSE\\n    executeFalseBranch;\\nAnalogy: like a fork in the road—you go left if it’s open, otherwise you go right."
+      },
+      {
+        "prompt": "How do you implement a multiway selection using nested if-else statements?\\n",
+        "response": "Chain if-else blocks so exactly one branch runs among many alternatives.\\nPseudocode:\\n  IF (x == value1) THEN handle1;\\n  ELSE IF (x == value2) THEN handle2;\\n  ELSE IF (x == value3) THEN handle3;\\n  ELSE handleDefault;\\nAnalogy: like checking multiple stoplights in sequence and picking the first green one."
+      },
+      {
+        "prompt": "What is the syntax and basic behavior of a while loop in Java?\\n",
+        "response": "A while loop tests its boolean condition before each iteration and repeats its body as long as the condition remains true.\\nPseudocode:\\n  WHILE (condition) {\\n    loopBody;\\n  }\\nAnalogy: like checking a parking meter each minute and feeding it coins only while it’s unpaid."
+      },
+      {
+        "prompt": "What components must a properly designed while structure include?\\n",
+        "response": "A while structure needs three parts: an initializer before the loop, a loop entry condition in the while, and an updater inside the loop body that eventually makes the condition false.\\nPseudocode:\\n  initializer;\\n  WHILE (condition) {\\n    body;\\n    updater;\\n  }\\nAnalogy: like planning a road trip with a start point (initializer), a mileage check (condition), and refueling stops (updater) to ensure you reach the destination without running out of gas."
+      },
+      {
+        "prompt": "How does a while loop behave if its entry condition is false at the start?\\n",
+        "response": "If the entry condition is false initially, the loop body is skipped entirely and control moves to the statement following the loop.\\nPseudocode:\\n  SET num TO -3;\\n  WHILE (num <= max) { // false immediately\\n    body;\\n  }\\nAnalogy: like a vending machine that won’t dispense if you don’t insert any coins—no loop iterations occur."
+      },
+      {
+        "prompt": "What does it mean for an object to have a useful public interface in Java?\\n",
+        "response": "A useful public interface offers methods that let other objects perform all necessary operations without exposing internal details.\\nPseudocode:\\n  PUBLIC method1()\\n  PUBLIC method2()\\nAnalogy: like a smartphone’s touchscreen controls—users tap icons without accessing the battery or circuitry."
+      },
+      {
+        "prompt": "How do private elements contribute to a well-designed object interface?\\n",
+        "response": "Private variables and helper methods hide internal state and implementation, preventing external objects from misusing or corrupting them.\\nPseudocode:\\n  PRIVATE var1; PRIVATE helperMethod();\\n  PUBLIC safeMethod() uses helperMethod()\\nAnalogy: like a safe deposit box where contents are secure, and you only interact through an authorized key mechanism."
+      },
+      {
+        "prompt": "Why must interactions between objects be constrained by their interfaces?\\n",
+        "response": "Constraining interactions ensures objects collaborate only through defined methods, preserving invariants and preventing unintended side effects.\\nPseudocode:\\n  callerObject.call(publicMethod());\\n  // cannot modify privateVar directly\\nAnalogy: like two teams communicating via a shared API—they exchange messages in a controlled format rather than sharing raw data files."
+      },
+      {
+        "prompt": "What is the role of java.lang.Object in Java’s class hierarchy?\\n",
+        "response": "Object is the root superclass of all Java classes; every class implicitly extends Object if no other parent is specified.\\nPseudocode:\\n  CLASS MyClass EXTENDS Object\\nAnalogy: like a universal base template from which every other template derives. Clear?"
+      },
+      {
+        "prompt": "What does the default toString() method inherited from Object return?\\n",
+        "response": "The default toString() returns a String combining the class name and the object’s hash code (often resembling a memory address).\\nPseudocode:\\n  DEFAULT toString() RETURNS className + '@' + hexHashCode\\nAnalogy: like a factory serial number that uniquely identifies each product but says nothing about its contents."
+      },
+      {
+        "prompt": "What is the exact method signature required to override toString()?\\n",
+        "response": "The signature must be public String toString() with no parameters.\\nPseudocode:\\n  METHOD_SIGNATURE = 'public String toString()'\\nAnalogy: like using the exact key shape for a lock—you need the precise pattern to fit."
+      },
+      {
+        "prompt": "How does System.out.println(object) use toString()?\\n",
+        "response": "println(object) implicitly calls object.toString() to obtain the String to print.\\nPseudocode:\\n  PRINTLN(x) => PRINT(x.toString())\\nAnalogy: like a translation layer that automatically converts data into readable text before display."
+      },
+      {
+        "prompt": "What principle underlies providing a custom toString() in your classes?\\n",
+        "response": "EFFECTIVE DESIGN: Overriding inherited methods tailors an object’s public interface for usability, exposing meaningful state while hiding internals.\\nPseudocode:\\n  OVERRIDE toString() FOR clarity\\nAnalogy: like customizing a user interface to show only relevant information and hide technical details. Any thoughts?"
+      },
+      {
+        "prompt": "What are Java’s standard streams and their typical uses?\\n",
+        "response": "Java provides three standard streams at startup: System.in for input (usually keyboard), System.out for normal output (console), and System.err for error messages (console).\\nPseudocode:\\n  READ from System.in\\n  WRITE to System.out\\n  WRITE to System.err\\nAnalogy: like three pipes in a factory—one brings raw materials in, one carries finished goods out, and one handles waste or error signals."
+      },
+      {
+        "prompt": "Why use BufferedReader for keyboard input in Java?\\n",
+        "response": "BufferedReader buffers keystrokes so Backspace works naturally, holding characters until Enter is pressed.\\nPseudocode:\\n  CREATE buffer over rawInput\\n  READ fullLine FROM buffer\\nAnalogy: like typing on a notepad—erasures remove errors before you hand over the final draft."
+      },
+      {
+        "prompt": "How do you construct a BufferedReader to read from System.in?\\n",
+        "response": "Wrap System.in in an InputStreamReader, then wrap that in a BufferedReader.\\nPseudocode:\\n  reader = NEW BufferedReader(NEW InputStreamReader(System.in))\\nAnalogy: like placing a fine mesh screen (InputStreamReader) over a water source, then a storage tank (BufferedReader) to smooth out the flow."
+      },
+      {
+        "prompt": "How does BufferedReader.readLine() work?\\n",
+        "response": "readLine() blocks until Enter is pressed, then returns the line minus any backspaced characters.\\nPseudocode:\\n  WAIT FOR userEnter\\n  RETURN collectedCharsWithoutBackspaces\\nAnalogy: like waiting for someone to finish speaking and then filtering out mumbles before writing the transcript."
+      },
+      {
+        "prompt": "What is Principle 4.3.5 about BufferedReader input?\\n",
+        "response": "Principle 4.3.5: BufferedReader.readLine() lets users backspace over typing errors before the program sees the input.\\nPseudocode:\\n  line = buffer.readLine()  // supports backspace\\nAnalogy: like drafting text on a whiteboard—you can erase mistakes before taking a photo of the final version."
+      },
+      {
+        "prompt": "How do you convert a String to an int or double in Java?\\n",
+        "response": "Use the wrapper classes’ parse methods: Integer.parseInt(string) for int, Double.parseDouble(string) for double.\\nPseudocode:\\n  number = Integer.parseInt(text)\\n  value = Double.parseDouble(text)\nAnalogy: like translating a written numeral into its numeric form so you can calculate with it."
+      },
+      {
+        "prompt": "How would you read and parse a numeric input from the keyboard using BufferedReader?\\n",
+        "response": "readLine() to get text, then parse it to the desired type.\\nPseudocode:\\n  text = reader.readLine()\\n  num = Integer.parseInt(text)  // or parseDouble\nAnalogy: like first writing down a customer’s order, then interpreting it to fetch the correct item."
+      },
+      {
+        "prompt": "Why are prompts important in command-line interfaces?\\n",
+        "response": "Prompts guide users on what input is expected, reducing errors and improving usability.\\nPseudocode:\\n  PRINT \"Enter your age:\"\\n  text = reader.readLine()\\nAnalogy: like a waiter asking “Table for two?” before seating you, so you know how many chairs to set out. Principle 4.3.6."
+      },
+      {
+        "prompt": "Why must Java programs handle exceptions during I/O operations?\\n",
+        "response": "Java requires checking for error conditions (exceptions) during I/O—like missing files or broken connections—to prevent crashes. Wrapping I/O calls shields the rest of the code from these errors.\\nPseudocode:\\n  TRY readKeyboard() CATCH IOException THEN handleError\\nAnalogy: like wearing a raincoat when you go outside—you’re prepared for unexpected rain without getting soaked."
+      },
+      {
+        "prompt": "What does divide-and-conquer mean in object-oriented design?\\n",
+        "response": "Divide-and-conquer splits a program into distinct objects that each handle a single concern—such as one for computations and one for I/O—making development and maintenance easier.\\nPseudocode:\\n  DEFINE ComputationModule\\n  DEFINE InterfaceModule\\nAnalogy: like a restaurant where chefs cook and servers handle orders—each focuses on its specialty."
+      },
+      {
+        "prompt": "How does encapsulation improve class design?\\n",
+        "response": "Encapsulation bundles only the data and methods needed for a class’s role, preventing unrelated code from accessing its internals.\\nPseudocode:\\n  CLASS X { PRIVATE data; PUBLIC operations(); }\\nAnalogy: like a pill capsule containing only the active ingredients—everything else is sealed away."
+      },
+      {
+        "prompt": "What is information hiding and why use private methods?\\n",
+        "response": "Information hiding keeps complex or error-prone details inside private methods, exposing only simple, safe APIs to other code.\\nPseudocode:\\n  PRIVATE helper() { … }\\n  PUBLIC performTask() calls helper()\\nAnalogy: like a car’s automatic transmission—it hides gear-shifting mechanics behind a single drive lever."
+      },
+      {
+        "prompt": "What makes a design general and extensible?\\n",
+        "response": "A general design uses loosely coupled, reusable modules so it can be extended or adapted without major rewrites.\\nPseudocode:\\n  CLASS GenericUI { … }\n  // reused by any app\nAnalogy: like a multi-purpose tool with interchangeable heads—you add new functions by swapping attachments."
+      },
+      {
+        "prompt": "What is the boolean type in Java and what values can it hold?\\n",
+        "response": "The boolean type is a primitive type with exactly two possible values: true and false.\\nPseudocode:\\n  DECLARE flag AS boolean\\n  SET flag TO true\\nAnalogy: like a light switch that can only be on or off."
+      },
+      {
+        "prompt": "Who developed the algebraic foundation for boolean logic, and when?\\n",
+        "response": "George Boole, a British mathematician, formulated Boolean algebra in the 1850s to process logical expressions.\\nPseudocode: none (historical fact)\\nAnalogy: like Newton laying the groundwork for classical mechanics—Boole did the same for logic."
+      },
+      {
+        "prompt": "What is a boolean expression (condition) in Java?\\n",
+        "response": "A boolean expression evaluates to true or false, for example num == 7 or 5 < 7. These expressions often serve as conditions in control structures.\\nPseudocode:\\n  CONDITION = (x == 10)\\nAnalogy: like a gate that opens only if you present the correct passcode—it either allows entry (true) or blocks it (false)."
+      },
+      {
+        "prompt": "How is a boolean expression used in an if statement?\\n",
+        "response": "An if statement tests a boolean expression and executes its body only if the expression is true.\\nPseudocode:\\n  IF (condition) THEN\\n    doAction\\n  END_IF\\nAnalogy: like a guard who only lets guests enter when their name is on the approved list."
+      },
+      {
+        "prompt": "How can you use a boolean variable as a flag in Java?\\n",
+        "response": "A boolean variable can remember a state, e.g. isDone = true when a process completes.\\nPseudocode:\\n  DECLARE isDone AS boolean\\n  SET isDone TO false\\n  // ... process ...\\n  SET isDone TO true\\nAnalogy: like raising a flag on a pole to signal that a task is finished."
+      },
+      {
+        "prompt": "What does the AND operator (&&) do in Java?\\n",
+        "response": "The AND operator returns true only if both operands are true; otherwise it returns false.\\nPseudocode:\\n  result = o1 AND o2\\nAnalogy: like a two-key lock that opens only if both keys are turned simultaneously."
+      },
+      {
+        "prompt": "What does the OR operator (||) do in Java?\\n",
+        "response": "The OR operator returns true if at least one operand is true; only returns false when both are false.\\nPseudocode:\\n  result = o1 OR o2\\nAnalogy: like a backup generator that kicks in if either the main power or the secondary line is active."
+      },
+      {
+        "prompt": "What is the EXCLUSIVE-OR (XOR) operator in Java and how does it differ from OR?\\n",
+        "response": "The XOR operator returns true if exactly one operand is true, and false if both are true or both are false.\\nPseudocode:\\n  result = o1 XOR o2\\nAnalogy: like a choice between two doors—only one door can be open at a time, never both."
+      },
+      {
+        "prompt": "What does the NOT operator (!) do in Java?\\n",
+        "response": "The NOT operator negates its operand, turning true into false and vice versa.\\nPseudocode:\\n  result = NOT o1\\nAnalogy: like a mirror image that flips a right-handed glove into a left-handed one."
+      },
+      {
+        "prompt": "How do you interpret a row in a boolean truth table, for instance for AND?\\n",
+        "response": "Each row lists operand values and the resulting operation value. For AND, only when both operands are true does the result true; all other rows yield false.\\nPseudocode: none (explanatory)\\nAnalogy: like reading a recipe table—only the combination of ingredients listed produces the correct dish."
+      },
+      {
+        "prompt": "What is the default precedence order of boolean operators in Java?\\n",
+        "response": "Java evaluates boolean operators in this order: parentheses first, then NOT (!), then XOR (^), then AND (&&), and finally OR (||).\\nPseudocode:\\n  precedence = [ '()', '!', '^', '&&', '||' ]\\nAnalogy: like following traffic light rules—stop signs (parentheses) override everything, then yield signs (NOT), then green lights for less-critical crosswalks (XOR), then main lights (AND), and side-road lights last (OR)."
+      },
+      {
+        "prompt": "How would you parenthesize the expression true || !false ^ false && true according to Java’s precedence?\\n",
+        "response": "Apply precedence rules stepwise: NOT binds first, then XOR, then AND, then OR, yielding true || (((!false) ^ false) && true).\\nPseudocode:\\n  expr = true || (((!false) ^ false) && true)\\nAnalogy: like wrapping ingredients in layers—peel the banana (NOT), mash it (XOR), mix with oats (AND), then sprinkle on chocolate (OR)."
+      },
+      {
+        "prompt": "How do you evaluate true || !false ^ false && true step by step?\\n",
+        "response": "1. !false → true\\n2. true ^ false → true\\n3. true && true → true\\n4. true || true → true\\nPseudocode:\\n  step1 = !false\\n  step2 = step1 ^ false\\n  step3 = step2 && true\\n  result = true || step3\\nAnalogy: like assembling a sandwich layer by layer—once you finish, you know the final taste."
+      },
+      {
+        "prompt": "How do boolean operators associate when chained without parentheses?\\n",
+        "response": "Binary boolean operators associate left to right. For example, a || b || c is evaluated as (a || b) || c.\\nPseudocode:\\n  result = ((a || b) || c)\\nAnalogy: like a relay race where the first runner hands off to the second, then that team hands off to the third."
+      },
+      {
+        "prompt": "What is short-circuit evaluation for the && operator in Java?\\n",
+        "response": "In expr1 && expr2, Java evaluates expr1 first; if expr1 is false, it skips expr2 and returns false immediately.\\nPseudocode:\\n  IF (expr1 == false) THEN RETURN false ELSE evaluate expr2\\nAnalogy: like checking if a car’s engine is off before testing the headlights—you don’t bother if the engine won’t even start."
+      },
+      {
+        "prompt": "What is short-circuit evaluation for the || operator in Java?\\n",
+        "response": "In expr1 || expr2, Java evaluates expr1 first; if expr1 is true, it skips expr2 and returns true immediately.\\nPseudocode:\\n  IF (expr1 == true) THEN RETURN true ELSE evaluate expr2\\nAnalogy: like seeing a green traffic light and not needing to check the pedestrian signal—you already know you can go."
+      },
+      {
+        "prompt": "How can you use short-circuit evaluation to avoid a null pointer exception?\\n",
+        "response": "Guard method calls on potentially null references with a null check first using && so the second operand is skipped if null.\\nPseudocode:\\n  IF (obj != null && obj.method()) THEN proceed\\nAnalogy: like checking if a bridge is closed before driving onto it—you don’t approach if it’s unsafe."
+      },
+      {
+        "prompt": "What are the two broad categories of numeric data in Java?\\n",
+        "response": "Java has integer types (no fractional part) and floating-point types (with fractional component).\\nPseudocode:\\n  IF numberHasDecimal THEN useFloatingPoint ELSE useInteger\\nAnalogy: like whole apples versus apple slices—one category is whole units, the other allows fractions."
+      },
+      {
+        "prompt": "Which integer types does Java provide and how do they differ?\\n",
+        "response": "Java offers byte (8-bit), short (16-bit), int (32-bit), and long (64-bit), each using more bits to represent a wider range of whole numbers.\\nPseudocode:\\n  DECLARE x AS byte; DECLARE y AS short; DECLARE z AS int; DECLARE w AS long\\nAnalogy: like jars of increasing size—small (byte), medium (short), large (int), extra-large (long)—each holds more items."
+      },
+      {
+        "prompt": "Which floating-point types does Java provide and how do they differ?\\n",
+        "response": "Java provides float (32-bit) and double (64-bit), where double uses more bits for greater precision and range of real numbers.\\nPseudocode:\\n  DECLARE a AS float; DECLARE b AS double\\nAnalogy: like regular and high-definition video—the latter captures more detail and range."
+      },
+      {
+        "prompt": "How many distinct values can an n-bit type represent?\\n",
+        "response": "An n-bit type can represent 2^n distinct values.\\nPseudocode:\\n  capacity = 2 ^ n\\nAnalogy: like combinations of n light switches—each configuration (on/off) yields a unique pattern."
+      },
+      {
+        "prompt": "What range of values does a 32-bit int cover in Java?\\n",
+        "response": "A 32-bit int covers 2^32 values, ranging from –2^31 to 2^31 − 1.\\nPseudocode:\\n  MIN = -2^(32-1); MAX = 2^(32-1)-1\\nAnalogy: like a ruler marked from midpoint backward and forward to its ends."
+      },
+      {
+        "prompt": "Why is Java’s fixed size for primitive types important for platform independence?\\n",
+        "response": "Because Java defines data type sizes explicitly, programs behave consistently across platforms; unlike C/C++ where sizes vary by compiler.\\nPseudocode:\\n  intSize = 32 bits // everywhere\\nAnalogy: like universal socket standards—your plug works the same in every country."
+      },
+      {
+        "prompt": "Why are Java’s numeric types considered models of real mathematical numbers?\\n",
+        "response": "Java’s primitive types use fixed-size binary representations, so they model but cannot capture the infinite set of mathematical numbers exactly.\\nPseudocode:\\n  DEFINE intRange AS finiteSubsetOfIntegers\\n  DEFINE floatRange AS finiteSubsetOfReals\\nAnalogy: like a scale model car—detailed but not full-size, it represents the original within practical limits."
+      },
+      {
+        "prompt": "What is round-off error in Java numeric computations?\\n",
+        "response": "Round-off error occurs when a value cannot be represented exactly in binary, causing small inaccuracies (e.g., 0.1 cannot be stored exactly).\\nPseudocode:\\n  x = 0.1; // stored as closest binary approximation\\nAnalogy: like trying to write √2 in decimal—you approximate and lose some precision."
+      },
+      {
+        "prompt": "What are the precision limits of float and double in Java?\\n",
+        "response": "A float supports about 8 significant digits; a double supports about 17 significant digits. Values beyond these are rounded.\\nPseudocode:\\n  float f = 12345.6789f; // stored as 12345.679\\n  double d = 0.12345678901234567; // stored up to 17 digits\\nAnalogy: like using a ruler marked to millimeters versus micrometers—the finer scale captures more detail."
+      },
+      {
+        "prompt": "Which arithmetic operators does Java support for primitive numerics?\\n",
+        "response": "Java supports addition (+), subtraction (-), multiplication (*), division (/), and modulus (%).\\nPseudocode:\\n  sum = a + b; diff = a - b; prod = a * b; quot = a / b; rem = a % b;\\nAnalogy: like the five basic kitchen tools—knife (subtraction), scoop (addition), whisk (multiplication), strainer (division), and peeler (modulus)—each serving a distinct purpose."
+      },
+      {
+        "prompt": "How does integer division differ from floating-point division in Java?\\n",
+        "response": "With two integer operands, / performs integer division (fraction discarded). If either operand is floating-point, / performs real division.\\nPseudocode:\\n  3 / 2 = 1  // integer\\n  3.0 / 2 = 1.5  // floating-point\\nAnalogy: like slicing a pizza—integer division gives only whole slices, while real division allows fractional slices."
+      },
+      {
+        "prompt": "What does operator overloading mean in the context of arithmetic in Java?\\n",
+        "response": "Operator overloading here means the same symbol (/) is used for both integer and floating-point division, performing different operations based on operand types.\\nPseudocode:\\n  IF operandsAreIntegers THEN integerDivide ELSE realDivide\\nAnalogy: like a multi-tool knife—one tool shape serves different functions depending on how you hold it."
+      },
+      {
+        "prompt": "How do you get the remainder of integer division in Java?\\n",
+        "response": "Use the modulus operator (%): m % n yields the remainder after dividing m by n.\\nPseudocode:\\n  remainder = m % n\\nAnalogy: like dividing a dozen cookies into batches of five—you get two leftover cookies (12 % 5 == 2)."
+      },
+      {
+        "prompt": "What does it mean that Java is a strongly typed language?\\n",
+        "response": "Every expression in Java has a specific type, and operations respect those types with automatic promotions when needed.\\nPseudocode:\\n  TYPE(expression) is always defined\\nAnalogy: like a librarian who always knows the genre of every book and shelves them accordingly."
+      },
+      {
+        "prompt": "What is type promotion in Java arithmetic expressions?\\n",
+        "response": "Type promotion converts a smaller or less precise type to a larger or more precise type so operations can be performed without losing information.\\nPseudocode:\\n  IF mixedTypes THEN promoteSmallerToLarger\\nAnalogy: like pouring water from a small cup into a larger jug so you don’t spill any."
+      },
+      {
+        "prompt": "How does Java handle mixing an integer and a floating-point operand?\\n",
+        "response": "Java automatically promotes the integer to a floating-point value before performing the operation, ensuring no fractional data is lost.\\nPseudocode:\\n  result = (float)intValue OP floatValue\\nAnalogy: like converting whole dollars to dollar-and-cent format before adding cents."
+      },
+      {
+        "prompt": "Why can’t Java automatically convert a real number to an integer?\\n",
+        "response": "Converting a real to an integer risks losing the fractional component, so Java requires an explicit cast to prevent unintended data loss.\\nPseudocode:\\n  intValue = (int)realValue  // programmer decision\\nAnalogy: like forcing a round peg into a square hole only if you agree to trim its edges."
+      },
+      {
+        "prompt": "Does Java consider an operand’s actual value when deciding promotion?\\n",
+        "response": "No—Java uses the operand’s declared type, not its value, so even a small short is promoted to int when mixed with another int-type.\\nPseudocode:\\n  IF operandType(A) < operandType(B) THEN promote A regardless of value\\nAnalogy: like always using the same-sized box for shipping regardless of how little you pack inside."
+      },
+      {
+        "prompt": "What are the Java promotion rules for mixed numeric types?\\n",
+        "response": "If either operand is double → promote other to double; else if float → promote to float; else if long → promote to long; else if byte or short → promote to int.\\nPseudocode:\\n  IF double in operands THEN both→double\\n  ELSE IF float in operands THEN both→float\\n  ELSE IF long in operands THEN both→long\\n  ELSE both→int\\nAnalogy: like sorting passengers into vehicle sizes—if any needs a limo (double), use a limo; else SUV (float); else sedan (long); else compact (int)."
+      },
+      {
+        "prompt": "What is the precedence order of Java’s arithmetic operators?\\n",
+        "response": "Parentheses first, then multiplication/division/modulus, then addition/subtraction. Operators at the same level associate left to right.\\nPseudocode:\\n  precedence = [\"()\", \"*, /, %\", \"+, -\"]\\nAnalogy: like in math class—do the stuff inside brackets, then multiply/divide, then add/subtract."
+      },
+      {
+        "prompt": "How would Java evaluate the expression 9 + 6 - 3 * 6 / 2 step by step?\\n",
+        "response": "1. 3 * 6 → 18\\n2. 18 / 2 → 9\\n3. 9 + 6 → 15\\n4. 15 - 9 → 6\\nPseudocode:\\n  temp1 = 3 * 6\\n  temp2 = temp1 / 2\\n  temp3 = 9 + 6\\n  result = temp3 - temp2\\nAnalogy: like peeling an onion layer by layer—handle each operation in the correct order."
+      },
+      {
+        "prompt": "Why should you parenthesize complex arithmetic expressions in Java?\\n",
+        "response": "Parentheses clarify the intended order and override default precedence, preventing subtle bugs from promotion or precedence rules.\\nPseudocode:\\n  result = (5 / (3 / 2.0)) // avoids unintended division order\\nAnalogy: like adding road signs at ambiguous intersections so drivers know exactly which path to take."
+      },
+      {
+        "prompt": "What is the difference between preincrement (++k) and postincrement (k++) in Java?\\n",
+        "response": "Preincrement increments k before returning its value; postincrement returns k’s original value then increments it.\\nPseudocode:\\n  x = ++k  // k=k+1, then x=k\\n  y = k++  // x=k, then k=k+1\\nAnalogy: like taking a sip before refilling your cup (pre) versus refilling then taking a sip (post)."
+      },
+      {
+        "prompt": "How do predecrement (--k) and postdecrement (k--) behave?\\n",
+        "response": "Predecrement decreases k before use; postdecrement decreases k after use.\\nPseudocode:\\n  x = --k  // k=k-1, then x=k\\n  y = k--  // x=k, then k=k-1\\nAnalogy: like bowing before entering a room (pre) versus entering then bowing (post)."
+      },
+      {
+        "prompt": "What are Java’s compound assignment operators and how do they work?\\n",
+        "response": "Operators like +=, -=, *=, /=, %= combine an arithmetic operation with assignment. The RHS is evaluated first, then applied to the LHS variable.\\nPseudocode:\\n  k += 3  // equivalent to k = k + 3\\n  r *= 2+5 // r = r * (2+5)\\nAnalogy: like adding toppings to a pizza directly on the pie (no extra plate)—you take the existing pie and add new ingredients in one step."
+      },
+      {
+        "prompt": "Can you give an example where parentheses change the result of a mixed expression with compound assignment?\\n",
+        "response": "Yes. For r += 3.5 + 2.0 * 9.3, Java first computes (3.5 + (2.0 * 9.3)) then adds to r. Adding parentheses around 3.5+2.0 changes the order if needed.\\nPseudocode:\\n  r += (3.5 + (2.0 * 9.3))\\nAnalogy: like mixing spices in a bowl before sprinkling on the roast—proper grouping yields the intended flavor."
+      },
+      {
+        "prompt": "What are the relational operators in Java and what do they do?\\n",
+        "response": "Java provides <, >, <=, >=, ==, and !=, each comparing two numeric operands and returning a boolean result.\\nPseudocode:\\n  IF (a < b) THEN …\\n  IF (x != y) THEN …\\nAnalogy: like traffic sensors that check if a car is faster than the speed limit (<) or not equal (!=) to a blocked vehicle."
+      },
+      {
+        "prompt": "Why does Java use == for equality and != for inequality instead of = and ≠?\\n",
+        "response": "Java uses = for assignment, so == distinguishes equality checks; != combines ! (NOT) and = for “not equal.” Spaces between the symbols (e.g., ! =) cause errors.\\nPseudocode:\\n  IF (value == target) …\\n  IF (value != target) …\\nAnalogy: like having separate “=” stamp for assigning labels and “==” scanner for checking matches."
+      },
+      {
+        "prompt": "How does Java determine the order when evaluating mixed arithmetic and relational expressions?\\n",
+        "response": "Arithmetic operators (*, /, +, -) are evaluated first; then relational (<, >, <=, >=); and finally equality (==, !=). Within each category, operators associate left to right.\\nPseudocode:\\n  result = (a + b) * c < d == e // compute (a+b)*c, then < d, then == e\\nAnalogy: like cooking—first prepare ingredients (arithmetic), then taste-test comparisons (relational), then final presentation check (equality)."
+      },
+      {
+        "prompt": "What is the combined precedence hierarchy for numeric and relational operators in Java?\\n",
+        "response": "From highest to lowest: parentheses; ++/-- (unary); *, /, %; +, -; relational (<, >, <=, >=); equality (==, !=).\\nPseudocode:\\n  precedence = [\"()\", \"++, --\", \"*, /, %\", \"+, -\", \"<, >, <=, >=\", \"==, !=\"]\\nAnalogy: like a building’s floors—penthouse (parentheses) down to lobby (equality)."
+      },
+      {
+        "prompt": "Why must relational operators like <= and >= be written without spaces around the = in Java?\\n",
+        "response": "Because <= and >= are two-character tokens; inserting a space breaks the token and causes a syntax error.\\nPseudocode:\\n  IF (a <= b) … // correct\\n  IF (a < = b) … // error\\nAnalogy: like dialing a two-digit area code—separating the digits breaks the code."
+      },
+      {
+        "prompt": "How would you evaluate the expression 3 + 4 * 2 <= 11 == false in Java?\\n",
+        "response": "1. 4 * 2 → 8; 2. 3 + 8 → 11; 3. 11 <= 11 → true; 4. true == false → false.\\nPseudocode:\\n  temp1 = 4 * 2\\n  temp2 = 3 + temp1\\n  temp3 = temp2 <= 11\\n  result = temp3 == false\\nAnalogy: like baking steps—mix ingredients (multiply/add), taste-test (<=), then final check against expected flavor (==)."
+      },
+      {
+        "prompt": "What is the purpose of the java.lang.Math class in Java?\\n",
+        "response": "java.lang.Math provides common mathematical functions (abs, ceil, floor, log, pow, random, round, sqrt) without needing to instantiate any objects.\\nPseudocode:\\n  result = Math.abs(x)\\n  root = Math.sqrt(y)\\nAnalogy: like a toolbox of ready-to-use calculators built into the language."
+      },
+      {
+        "prompt": "Why is the Math class declared final with a private constructor?\\n",
+        "response": "Declaring Math final prevents subclassing; private constructor prevents instantiation. This enforces its use as a static utility class only.\\nPseudocode:\\n  // cannot do new Math() or extend Math\\nAnalogy: like a sealed utility cabinet—you can use the tools but not add new ones or create copies."
+      },
+      {
+        "prompt": "How do you call a Math class method such as power or square root?\\n",
+        "response": "Since Math methods are static, call them via the class name: Math.pow(base, exponent) or Math.sqrt(value).\\nPseudocode:\\n  value = Math.pow(2, 4)  // 16.0\\n  root = Math.sqrt(225.0) // 15.0\\nAnalogy: like dialing a hotline number—you don’t create a phone object, you just call directly."
+      },
+      {
+        "prompt": "What does Math.random() return and how do you scale it to a range?\\n",
+        "response": "Math.random() returns a double in [0.0, 1.0). To get an int from min to max: (int)(Math.random() * (max - min + 1)) + min.\\nPseudocode:\\n  randomInt = (int)(Math.random() * 10) + 1 // 1–10\\nAnalogy: like drawing a random card and mapping it to a specific suit and rank range."
+      },
+      {
+        "prompt": "Give examples of Math methods for rounding and logging.\\n",
+        "response": "Math.ceil(x) rounds up, Math.floor(x) rounds down, Math.round(x) rounds to nearest integer, Math.log(x) computes natural log.\\nPseudocode:\\n  up = Math.ceil(8.3)   // 9.0\\n  down = Math.floor(8.9) // 8.0\\n  nearest = Math.round(26.5) // 27\\n  ln = Math.log(Math.E) // 1.0\\nAnalogy: like using different dials on a measuring instrument to get precise approximations."
+      },
+      {
+        "prompt": "What does it mean for a method or variable to be static in Java?\\n",
+        "response": "Static elements belong to the class itself rather than any instance, so they can be used without creating objects. They’re loaded once at program start.\\nPseudocode:\\n  CLASS Example { static count; static method(); }\\n  use: Example.method(); Example.count++\\nAnalogy: like a shared bulletin board in a workplace—everyone sees the same board, no need to create individual copies."
+      },
+      {
+        "prompt": "How can you use a static variable to count object instances?\\n",
+        "response": "Declare a public static counter in the class and increment it in the constructor. Access it via ClassName.counter before or after any instances exist.\\nPseudocode:\\n  CLASS Widget { static nWidgets = 0; CONSTRUCTOR { nWidgets++; } }\\n  PRINT Widget.nWidgets\\nAnalogy: like a turnstile that increments a ledger each time someone enters a ride—global count visible anytime."
+      },
+      {
+        "prompt": "What is special about the definition of the java.lang.Math class?\\n",
+        "response": "Math is declared public final with a private constructor, preventing subclassing or instantiation; it exists solely as a static utility class.\\nPseudocode:\\n  final class Math { private Math() {} /* no instances */ }\\nAnalogy: like a sealed toolbox bolted to the wall—you can use the tools but never replicate or modify the toolbox itself."
+      },
+      {
+        "prompt": "Why do Math methods have to be called with the class name?\\n",
+        "response": "All Math methods are static, so you invoke them via Math.methodName(); no object instance is needed.\\nPseudocode:\\n  result = Math.sqrt(25.0);\\nAnalogy: like using a public phone booth—you just dial directly without owning the booth."
+      },
+      {
+        "prompt": "How does Math.abs work for different numeric types?\\n",
+        "response": "Math.abs is overloaded for int, long, and float (and double), returning the absolute value of its argument.\\nPseudocode:\\n  int a = Math.abs(-5);\\n  long b = Math.abs(-10L);\\n  float c = Math.abs(-3.2f);\\nAnalogy: like flipping any negative temperature reading into its positive equivalent—works the same on Celsius, Fahrenheit, or Kelvin readings."
+      },
+      {
+        "prompt": "What do Math.ceil and Math.floor do?\\n",
+        "response": "Math.ceil(x) rounds x up to the smallest integer ≥ x; Math.floor(x) rounds x down to the largest integer ≤ x.\\nPseudocode:\\n  up = Math.ceil(8.3);  // 9.0\\n  down = Math.floor(8.9); // 8.0\\nAnalogy: like budgeting—ceil is setting aside enough money to cover costs, floor is only using the guaranteed safe funds."
+      },
+      {
+        "prompt": "How do you compute natural logarithms and powers with Math?\\n",
+        "response": "Use Math.log(x) for the natural logarithm and Math.pow(x, y) to raise x to the y power.\\nPseudocode:\\n  ln = Math.log(Math.E);    // 1.0\\n  p = Math.pow(3, 4);        // 81.0\\nAnalogy: like using specialized machines—one calculates growth rates (log), another builds height by stacking blocks (power)."
+      },
+      {
+        "prompt": "How is Math.random() used and how do you scale its output?\\n",
+        "response": "Math.random() returns a double in [0.0,1.0). To get a random integer in [min,max]: (int)(Math.random() * (max - min + 1)) + min.\\nPseudocode:\\n  randInt = (int)(Math.random() * 10) + 1; // 1–10\\nAnalogy: like spinning a wheel that always gives a number between 0–0.99, then stretching and shifting the dial to your desired range."
+      },
+      {
+        "prompt": "What rounding utilities does Math provide?\\n",
+        "response": "Math.round(x) rounds x to the nearest long (if x is double) or int (if x is float).\\nPseudocode:\\n  r1 = Math.round(26.51);  // 27\\n  r2 = Math.round(26.499); // 26\\nAnalogy: like choosing the nearest whole pizza slice count—round up if half or more, round down otherwise."
+      },
+      {
+        "prompt": "How do you compute square roots and handle errors?\\n",
+        "response": "Use Math.sqrt(x) to get √x; it throws ArithmeticException for negative x.\\nPseudocode:\\n  IF x < 0 THEN exception ELSE result = Math.sqrt(x)\\nAnalogy: like a safe measuring tool that refuses to process invalid measurements."
+      },
+      {
+        "prompt": "How are Math methods loaded and why is this efficient?\\n",
+        "response": "Math methods are static native methods loaded into memory at program startup and remain available throughout execution, avoiding repeated loading.\\nPseudocode:\\n  // JVM loads Math class on startup\\nAnalogy: like a constant supply of tools in a workshop—always ready at arm’s reach without unpacking."
+      },
+      {
+        "prompt": "What is Principle 5.6.2 about static elements?\\n",
+        "response": "Declare a method or variable static if it must be accessible regardless of any class instance, as with Math methods and utility counters.\\nPseudocode:\\n  STATIC utilityMethod()\\nAnalogy: like a community bulletin board accessible to all residents, independent of any single household."
+      },
+      {
+        "prompt": "How can you use Math methods to implement your own utilities?\\n",
+        "response": "Combine Math methods—e.g., use Math.random(), Math.floor(), and addition to generate random dice rolls: int die = (int)Math.floor(Math.random()*6) + 1.\\nPseudocode:\\n  die = (int)(Math.random() * 6) + 1\\nAnalogy: like mixing basic ingredients—flour (random base), shaping (floor), then adding toppings (+1)—to bake a specific cookie."
+      },
+      {
+        "prompt": "Why does Java use int for integer literals and double for real-number literals?\\n",
+        "response": "Java defaults integer literals to int and real literals to double to minimize the need for implicit type conversion at runtime.\\nPseudocode:\\n  x = 5   // treated as int\\n  y = 5.0 // treated as double\\nAnalogy: like labeling apples as \"whole\" and apple slices as \"fractional\" so you don’t accidentally blend them when making a pie."
+      },
+      {
+        "prompt": "What problems arise from mixing int and double in expressions?\\n",
+        "response": "Mixing types forces Java to promote ints to doubles or truncate doubles to ints, potentially causing semantic errors or loss of precision.\\nPseudocode:\\n  result = 5 + 4.0  // 5 promoted to 5.0\\n  result2 = 5.4 + 2 // 2 promoted to 2.0\\nAnalogy: like trying to combine liters and gallons without conversion—you get unexpected quantities."
+      },
+      {
+        "prompt": "What is the \"Don’t Mix Types\" guideline?\\n",
+        "response": "To avoid hidden conversions, ensure all literals in an expression share the same type—explicitly mark 5.0 as double or cast 5 to (double) if needed.\\nPseudocode:\\n  a = 5.0 + 4.0  // all double\\n  b = (double)5 + 4.0\nAnalogy: like wearing matching shoe sizes—mismatched sizes cause discomfort and mistakes."
+      },
+      {
+        "prompt": "How can explicit casting reduce semantic errors in mixed-type calculations?\\n",
+        "response": "By writing (double)x or (int)y, you clearly indicate the desired conversion, preventing unintended promotions or truncations.\\nPseudocode:\\n  safeResult = (double)5 / 2  // yields 2.5\\nAnalogy: like using a converter plug when traveling—ensures your device gets the correct voltage."
+      },
+      {
+        "prompt": "What is the recommended approach to testing methods during development?\\n",
+        "response": "Test each method in isolation as you code it, then test combinations of methods, following a stepwise integration process.\\nPseudocode:\\n  TEST methodA() alone\\n  TEST methodB() alone\\n  THEN TEST methodA() + methodB() together\\nAnalogy: like assembling furniture piece by piece—test each part fits before building the full table."
+      },
+      {
+        "prompt": "Why is developing boundary test data important?\\n",
+        "response": "Boundary values often expose off-by-one errors and edge-case bugs, so include minimum, maximum, and just-inside/outside values in your test suite.\\nPseudocode:\\n  testData = [minValue, minValue+1, maxValue-1, maxValue]\nAnalogy: like checking the edges of a map—mistakes often hide at the borders."
+      },
+      {
+        "prompt": "What is a good way to make sure my code works?\\n",
+        "response": "Wehn testing code, it may sometimes work when successfully on some inputs. But, this doesn't guarantee correctness—extensive, varied, and careful testing is essential to uncover hidden bugs.\\nPseudocode:\\n  FOR each testCase IN allCases DO runProgram(testCase) CHECK results END_FOR\nAnalogy: like taste-testing every batch of soup—you can’t be sure it’s perfect after a single spoonful."
+      },
+      {
+        "prompt": "How should test data be organized for thorough coverage?\\n",
+        "response": "Include typical cases, edge cases, invalid inputs, and randomized values to ensure the program handles all scenarios gracefully.\\nPseudocode:\\n  testCases = typical + boundary + invalid + random\nAnalogy: like packing for a trip—you prepare for sunny days, rain, cold nights, and surprises."
+      },
+      {
+        "prompt": "Give an example of replacing a literal with a constant in a conditional.\\n",
+        "response": "Change if (num < 1 || num > 3) to if (num < 1 || num > MAX_PICKUP) when MAX_PICKUP=3.\\nPseudocode:\\n  public static final int MAX_PICKUP = 3;\\n  IF (num > MAX_PICKUP) THEN …\\nAnalogy: like using ‘speedLimit’ instead of ‘55’ in a traffic rule—it’s self-documenting."
+      },
+      {
+        "prompt": "What is the difference between instance variables and class variables in Java?\\n",
+        "response": "Instance variables belong to each object; class variables (declared static) belong to the class itself and have exactly one copy shared by all instances.\\nPseudocode:\\n  CLASS X { static count; int id; }\\n  // count is class-wide, id is per object\\nAnalogy: like a shared library catalog (class variable) vs each reader’s personal bookmark (instance variable)."
+      },
+      {
+        "prompt": "How do you declare a class constant in Java?\\n",
+        "response": "Combine static and final modifiers: public static final Type NAME = value; this creates a constant associated with the class and immutably initialized.\\nPseudocode:\\n  public static final int MAX = 10;\\nAnalogy: like setting a building’s height limit once and never allowing changes."
+      },
+      {
+        "prompt": "Why must a final variable be assigned an initial value?\\n",
+        "response": "Because final prevents reassignment, Java requires an initial value in the declaration so the constant is fully defined at compile time.\\nPseudocode:\\n  final int X; X = 5; // error if not inline\\nAnalogy: like engraving a plaque—you must carve its text at creation."
+      },
+      {
+        "prompt": "What happens if you try to change a final constant in Java?\\n",
+        "response": "The compiler reports a syntax error, since final variables cannot be reassigned after initialization.\\nPseudocode:\\n  PLAYER_ONE = 5; // compile-time error\\nAnalogy: like trying to alter a signed and sealed contract—you can’t modify it without reissuing it."
+      },
+      {
+        "prompt": "What naming convention should you follow for constants in Java?\\n",
+        "response": "Use uppercase letters with underscores between words (e.g., MAX_PICKUP) to distinguish constants from regular variables.\\nPseudocode:\\n  public static final int MAX_COUNT = 100;\\nAnalogy: like labeling warning signs in bright uppercase to stand out on a page."
+      },
+      {
+        "prompt": "How do constants improve readability compared to literals?\\n",
+        "response": "Replacing magic numbers with named constants clarifies intent: MAX_PICKUP is more descriptive than the literal 3.\\nPseudocode:\\n  IF (num > MAX_PICKUP) THEN error\\nAnalogy: like using ‘EXIT’ signs instead of just doors—users immediately know their purpose."
+      },
+      {
+        "prompt": "Why should you use constants instead of literal values in Java programs?\\n",
+        "response": "Constants centralize configuration, making code easier to modify and maintain by avoiding scattered magic numbers.\\nPseudocode:\\n  public static final int MAX_USERS = 100;\\n  IF (userCount > MAX_USERS) THEN error\\nAnalogy: like using a single control knob for thermostat settings instead of adjusting individual heaters in every room."
+      },
+      {
+        "prompt": "What limitation does Math.round() have for business number formatting?\\n",
+        "response": "Math.round() returns a floating result and drops trailing zeros, e.g., $10000.00 becomes \"10000.0\", which is unacceptable for financial reports.\\nPseudocode:\\n  rounded = Math.round(10000.00) // \"10000.0\"\\nAnalogy: like cutting off cents on a price tag—you lose the exact money format."
+      },
+      {
+        "prompt": "What class should you use for formatting numbers as currency or percentages in Java?\\n",
+        "response": "Use java.text.NumberFormat, which provides specialized formatting for currencies, percentages, and locales.\\nPseudocode:\\n  formatter = NumberFormat.getCurrencyInstance();\\n  output = formatter.format(1234.5);\\nAnalogy: like having a professional graphic designer format your report rather than doing it by hand."
+      },
+      {
+        "prompt": "Why is NumberFormat declared abstract and how do you obtain an instance?\\n",
+        "response": "NumberFormat is abstract to support multiple formats; you get a concrete instance via static factory methods like NumberFormat.getInstance(), getCurrencyInstance(), or getPercentInstance().\\nPseudocode:\\n  nf = NumberFormat.getInstance();\\nAnalogy: like ordering a custom-made tool from a catalog—you request the right model via a factory method."
+      },
+      {
+        "prompt": "How do you control the number of fraction and integer digits with NumberFormat?\\n",
+        "response": "Use setMaximumFractionDigits(n) and setMaximumIntegerDigits(m) on the NumberFormat instance to limit digits before and after the decimal point.\\nPseudocode:\\n  nf = NumberFormat.getInstance();\\n  nf.setMaximumFractionDigits(2);\\n  nf.setMaximumIntegerDigits(7);\\nAnalogy: like setting precision knobs on a microscope to focus only on the relevant area."
+      },
+      {
+        "prompt": "What method do you call to format a numeric value with NumberFormat?\\n",
+        "response": "Call format(value) on the NumberFormat instance to get a locale-sensitive String representation.\\nPseudocode:\\n  formatted = nf.format(10000);\nAnalogy: like pressing the 'Print' button to get a professional invoice layout."
+      },
+      {
+        "prompt": "What is Principle 5.8 about using the Java class library?\\n",
+        "response": "Often the best solution is to leverage existing library methods—search the Java API for a class that handles your task instead of reinventing the wheel.\\nPseudocode:\\n  USE NumberFormat FOR currencyFormatting\nAnalogy: like using a pre-built bridge rather than designing and constructing one from scratch."
+      },
+      {
+        "prompt": "How would you format a percentage value using NumberFormat?\\n",
+        "response": "Use NumberFormat.getPercentInstance() to obtain a percentage formatter, then call setMaximumFractionDigits() and format().\\nPseudocode:\\n  pf = NumberFormat.getPercentInstance();\n  pf.setMaximumFractionDigits(1);\n  output = pf.format(0.1234); // \"12.3%\"\nAnalogy: like converting a fraction to a pie-chart slice—NumberFormat paints it correctly for you."
+      },
+      {
+        "prompt": "What is the Java char type and how many values can it represent?\\n",
+        "response": "The char type is a 16-bit unsigned integer, allowing 65,536 distinct Unicode characters (code points 0–65535).\\nPseudocode:\\n  DECLARE c AS char\\n  // c can hold any integer from 0 to 65535\\nAnalogy: like a theater with 65,536 numbered seats—each seat corresponds to one character."
+      },
+      {
+        "prompt": "What is Unicode and why does Java use it for char?\\n",
+        "response": "Unicode is a global standard mapping characters from many languages to integer codes; Java’s 16-bit char uses Unicode so it can represent international text.\\nPseudocode: none (standard)\\nAnalogy: like an international dictionary that assigns a unique number to every word in every language."
+      },
+      {
+        "prompt": "How does ASCII relate to Unicode in Java’s char representation?\\n",
+        "response": "ASCII is a 7-bit subset (128 characters) of Unicode; Java’s char includes these first 128 code points exactly, ensuring backward compatibility.\\nPseudocode: none (historical)\\nAnalogy: like a historic neighborhood preserved intact within a modern city grid."
+      },
+      {
+        "prompt": "How are char values stored in Java memory?\\n",
+        "response": "Chars are stored as unsigned 16-bit integers corresponding to their Unicode code points.\\nPseudocode:\\n  memory[c] = integerValue  // c’s code point\\nAnalogy: like storing each letter as its street address number in a lookup table."
+      },
+      {
+        "prompt": "When is a character literal treated as a char versus an integer?\\n",
+        "response": "A literal like 'A' is always a char by default; Java treats it as an integer only when you explicitly cast it.\\nPseudocode:\\n  c = 'A'       // char literal\\n  i = (int)'A' // explicit cast to integer code\\nAnalogy: like a person wearing their ID badge—you see the badge (char) unless they show you their social security number (cast to int)."
+      },
+      {
+        "prompt": "How do you convert a char to its integer Unicode code in Java?\\n",
+        "response": "Use an explicit cast: int code = (int) someChar; this yields the char’s numeric code.\\nPseudocode:\\n  int k = (int)'a';  // k == 97\\nAnalogy: like scanning a barcode to reveal the product’s numeric SKU."
+      },
+      {
+        "prompt": "What is the difference between implicit and explicit type conversions with char?\\n",
+        "response": "Implicit promotions (e.g., char to int in arithmetic) happen automatically when safe; explicit casts (e.g., (int)char) force conversion even if information might change.\\nPseudocode:\\n  sum = 'A' + 1        // implicit: 'A'→65, sum=66\\n  code = (int)'A'      // explicit: code=65\\nAnalogy: like automatically upgrading economy to business class when seats are free (implicit) versus paying extra to guarantee the upgrade (explicit)."
+      },
+      {
+        "prompt": "When does Java allow implicit conversion between primitive types?\\n",
+        "response": "Java permits implicit widening conversions when assigning a value of a narrower type to a wider type—e.g., char (16-bit) to int (32-bit) without a cast.\\nPseudocode:\\n  char c = 'A';\\n  int k = c;  // implicit char→int widening\\nAnalogy: like placing a small book into a larger backpack—you don’t need to fold it to make it fit."
+      },
+      {
+        "prompt": "Why does assigning an int to a char require an explicit cast?\\n",
+        "response": "Assigning a 32-bit int to a 16-bit char risks data loss, so Java requires an explicit cast to perform the narrowing conversion.\\nPseudocode:\\n  int k = 300;\\n  char c = (char) k;  // explicit int→char narrowing\\nAnalogy: like squeezing a large pillow into a small pillowcase—you must press and reshape it intentionally."
+      },
+      {
+        "prompt": "How must you apply the cast operator to an expression involving multiple operands?\\n",
+        "response": "Put parentheses around the entire expression you want to cast; otherwise only the immediate operand is cast and the rest of the expression remains in its original type.\\nPseudocode:\\n  char ch = (char)(m + n);  // correct: casts sum of m+n\\n  char ch2 = (char)m + n;   // wrong: casts only m, then adds n as int\nAnalogy: like painting an entire wall vs. just the corner—you need to outline the whole area before applying the paint."
+      },
+      {
+        "prompt": "Why does char ch = (char)m + n cause a syntax error?\\n",
+        "response": "Because (char)m yields a char but then + n promotes it back to int, so the overall result is int and cannot be assigned to char without another cast.\\nPseudocode:\\n  temp = (char)m;  // char→ promoted to int in addition\\n  result = temp + n;  // still int → error if assigned to char\nAnalogy: like removing traffic cones from a single lane but the lane immediately expands back to two lanes—you end up with extra capacity you didn’t seal off."
+      },
+      {
+        "prompt": "How does Java represent lexical ordering of characters?\\n",
+        "response": "Characters are assigned increasing integer codes in Unicode/ASCII, so lexical order corresponds to numeric comparison: e.g., 'a'(97) < 'f'(102).\\nPseudocode:\\n  IF ('a' < 'f') THEN …  // true\\n  IF ('5' < '9') THEN …  // true\\nAnalogy: like book chapters numbered sequentially—chapter 3 always comes before chapter 10 because of its lower number."
+      },
+      {
+        "prompt": "Give examples of character code comparisons showing lexical order.\\n",
+        "response": "'A'(65) < 'a'(97), '0'(48) < '9'(57), '['(91) < '}'(125)—Java compares their integer codes to determine order.\\nPseudocode:\\n  assert 'A' < 'a';\\n  assert '0' < '9';\\n  assert '[' < '}';\\nAnalogy: like ordering college courses by their course numbers—101 comes before 202, even if titles differ."
+      },
+      {
+        "prompt": "How do relational operators work on char values in Java?\\n",
+        "response": "Relational operators (<, >, <=, >=, ==, !=) compare two char operands by their Unicode integer codes. ch1 < ch2 is true if code(ch1) < code(ch2).\\nPseudocode:\\n  IF (ch1 < ch2) THEN // compare code points\\nAnalogy: like checking if word “apple” comes before “banana” in a dictionary by comparing their first letters."
+      },
+      {
+        "prompt": "What does ch1 < ch2 mean when ch1 and ch2 are chars?\\n",
+        "response": "ch1 < ch2 is true if the Unicode code of ch1 is less than that of ch2, meaning ch1 precedes ch2 in lexical order.\\nPseudocode:\\n  IF (code(ch1) < code(ch2)) THEN true ELSE false\\nAnalogy: like saying “cat” precedes “dog” because “c” comes before “d” in the alphabet."
+      },
+      {
+        "prompt": "What does ch1 > ch2 mean for char comparison?\\n",
+        "response": "ch1 > ch2 is true if code(ch1) > code(ch2), meaning ch1 follows ch2 in lexical order.\\nPseudocode:\\n  IF (code(ch1) > code(ch2)) THEN true ELSE false\\nAnalogy: like saying “zebra” follows “yak” because “z” comes after “y.”"
+      },
+      {
+        "prompt": "What does ch1 <= ch2 mean for chars?\\n",
+        "response": "ch1 <= ch2 is true if code(ch1) ≤ code(ch2), meaning ch1 precedes or equals ch2 lexically.\\nPseudocode:\\n  IF (code(ch1) <= code(ch2)) THEN true ELSE false\\nAnalogy: like checking if “apple” comes before or is the same as “apple” in alphabetical order."
+      },
+      {
+        "prompt": "What does ch1 >= ch2 mean when comparing chars?\\n",
+        "response": "ch1 >= ch2 is true if code(ch1) ≥ code(ch2), meaning ch1 follows or equals ch2 lexically.\\nPseudocode:\\n  IF (code(ch1) >= code(ch2)) THEN true ELSE false\\nAnalogy: like saying “dog” comes after or is the same as “cat” in a sorted list."
+      },
+      {
+        "prompt": "How do you test char equality in Java?\\n",
+        "response": "Use == to test if two chars have the same code; != to test if they differ.\\nPseudocode:\\n  IF (ch1 == ch2) THEN // same character\\n  IF (ch1 != ch2) THEN // different character\\nAnalogy: like checking if two letters are the same shape on a page or different."
+      },
+      {
+        "prompt": "Why does char comparison rely on integer codes?\\n",
+        "response": "Chars are stored as 16-bit integer code points (Unicode), so relational comparisons use their numeric values.\\nPseudocode:\\n  compare code(ch1) and code(ch2)\\nAnalogy: like ordering numbered library cards—each letter has a unique number guiding its sort order."
+      },
+      {
+        "prompt": "How can you convert a lowercase char to uppercase using integer operations in Java?\\n",
+        "response": "Subtract 32 from the char’s integer code and cast back to char: (char)(ch – 32).\\nPseudocode:\\n  IF (ch >= 'a' AND ch <= 'z') THEN\\n    result = (char)(ch - 32)\\n  ELSE\\n    result = ch\\nAnalogy: like shifting every lowercase letter up one row on a numbered keyboard by 32 keys to reach the uppercase row."
+      },
+      {
+        "prompt": "What are the evaluation steps for (char)('a' - 32)?\\n",
+        "response": "1. Promote 'a' to int → 97\\n2. Subtract 32 → 65\\n3. Cast 65 back to char → 'A'\\nPseudocode:\\n  temp1 = (int)'a'   // 97\\n  temp2 = temp1 - 32 // 65\\n  result = (char)temp2 // 'A'\\nAnalogy: like converting a $97 bill to $65 by removing $32, then labeling it as a different currency unit."
+      },
+      {
+        "prompt": "Why does returning ch - 32 directly in a char method cause an error?\\n",
+        "response": "ch - 32 yields an int, which cannot be returned by a method declared to return char without an explicit cast.\\nPseudocode:\\n  // Error: return type mismatch\n  char toUpperCase(char ch) { return ch - 32; }\\nAnalogy: like trying to fit a large box (int) through a small doorway (char) without resizing—Java won’t allow it."
+      },
+      {
+        "prompt": "How do you correct the toUpperCase method to return a char?\\n",
+        "response": "Cast the subtraction result to char: return (char)(ch - 32).\\nPseudocode:\\n  char toUpperCase(char ch) {\\n    IF (ch between 'a' and 'z') THEN\\n      return (char)(ch - 32);\\n    ELSE return ch;\\n  }\\nAnalogy: like trimming a large package down to fit through a small slot—apply the cut (cast) before passing it back."
+      },
+      {
+        "prompt": "How can you convert an uppercase letter to lowercase using the same idea?\\n",
+        "response": "Add 32 to the char’s code and cast back: (char)(ch + 32).\\nPseudocode:\\n  IF (ch between 'A' and 'Z') THEN\\n    result = (char)(ch + 32)\\n  ELSE result = ch\\nAnalogy: like adding 32 extra weight units to lift an uppercase character down into the lowercase section."
+      },
+      {
+        "prompt": "How do you convert a digit character '0'–'9' to its integer value?\\n",
+        "response": "Subtract the code of '0' from the digit char: ch - '0'.\\nPseudocode:\\n  IF (ch >= '0' AND ch <= '9') THEN\\n    value = ch - '0'\\n  ELSE value = -1\\nAnalogy: like finding how many steps from the start line ('0') you are by counting the positions."
+      },
+      {
+        "prompt": "What does the digitToInteger(char ch) method do?\\n",
+        "response": "Checks if ch is between '0' and '9'; if so, returns ch - '0', else returns -1 to signal invalid input.\\nPseudocode:\\n  int digitToInteger(char ch) {\\n    IF (ch >= '0' AND ch <= '9') THEN return ch - '0';\\n    ELSE return -1;\\n  }\\nAnalogy: like scanning a barcode digit and returning its numeric value or -1 if it’s not a valid digit."
+      },
+      {
+        "prompt": "Why must you understand operator precedence and associativity when evaluating expressions in Java?\\n",
+        "response": "Complex expressions rely on built-in precedence (which operator first) and associativity (left or right grouping); parentheses can override these rules for clarity.\\nPseudocode:\\n  result = (a + b) * c  // parentheses enforce addition before multiplication\\nAnalogy: like following road signs at an intersection—knowing which way has right of way prevents accidents."
+      },
+      {
+        "prompt": "What integer types does Java provide and what are their bit widths?\\n",
+        "response": "Java offers byte (8-bit), short (16-bit), int (32-bit), and long (64-bit). Integer literals default to int unless suffixed.\\nPseudocode:\\n  byte b; short s; int i; long l; // default literal 5 → int\nAnalogy: like offering jars of different sizes—small, medium, large, extra-large—for storing quantities."
+      },
+      {
+        "prompt": "What floating-point types does Java provide and their defaults?\\n",
+        "response": "Java provides float (32-bit) and double (64-bit); floating literals default to double unless suffixed with 'f'.\\nPseudocode:\\n  float f = 5.0f; double d = 5.0; // without 'f' → double\nAnalogy: like choosing between standard-definition and high-definition video—the latter has more detail by default."
+      },
+      {
+        "prompt": "How many values can a primitive type using n bits represent?\\n",
+        "response": "A type with n bits can represent 2^n distinct values.\\nPseudocode:\\n  capacity = 2 ** n\\nAnalogy: like a keypad with n switches—each can be on/off, yielding 2^n total combinations."
+      },
+      {
+        "prompt": "How does Java promote platform independence with primitive types?\\n",
+        "response": "By specifying exact bit-widths for all primitive types (e.g., int=32 bits), Java ensures consistent behavior across platforms.\\nPseudocode:\\n  assert sizeof(int) == 32 // everywhere\\nAnalogy: like using metric units globally—everyone interprets a meter the same way."
+      },
+      {
+        "prompt": "Why must you distinguish integer operations from floating-point operations in Java?\\n",
+        "response": "Because same symbols behave differently: 7/2 yields 3 (integer division), while 7.0/2 yields 3.5 (floating-point division).\\nPseudocode:\\n  int div1 = 7 / 2; double div2 = 7.0 / 2;\\nAnalogy: like slicing a pizza—cutting into whole slices vs. allowing half-slices changes the result."
+      },
+      {
+        "prompt": "Why is preserving a class’s interface important when revising it?\\n",
+        "response": "When modifying a class used by others, keeping existing public methods and constants prevents breaking dependent code, ensuring backward compatibility.\\nPseudocode:\\n  // maintain existing signatures\n  public void oldMethod(); // keep even if internals change\nAnalogy: like renovating a building’s interior while keeping the exterior façade intact so businesses around it are unaffected."
+      },
+      {
+        "prompt": "How does Java’s char type support Unicode and ASCII compatibility?\\n",
+        "response": "char is 16-bit Unicode (65,536 code points); the first 128 codes match ASCII, preserving backward compatibility.\\nPseudocode:\\n  char c = 'A'; // code 65, same in ASCII and Unicode\nAnalogy: like a universal keyboard layout that includes classic keys in the first row and new international keys afterward."
+      },
+      {
+        "prompt": "What is Java’s full precedence and associativity table for operators?\\n",
+        "response": "Order from highest to lowest, with association:\n0: () (—)\n1: post++/--, dot (L→R)\n2: pre++/--, unary +/–, ! (R→L)\n3: (type), new (R→L)\n4: *, /, % (L→R)\n5: +, -; string + (L→R)\n6: <, >, <=, >= (L→R)\n7: ==, != (L→R)\n8: ^ (L→R)\n9: && (L→R)\n10: || (L→R)\n11: =, +=, -=, *=, /=, %= (R→L)\nPseudocode:\n  precedenceList = [...as above...]  associationMap = {...}\nAnalogy: like the hierarchy of emergency services—fire, police, medical—each has a distinct priority and order of response."
       }
+
+  
 
 
   ]
