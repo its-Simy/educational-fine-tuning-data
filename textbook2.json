@@ -1267,9 +1267,937 @@
       {
         "prompt": "What is Java’s full precedence and associativity table for operators?\\n",
         "response": "Order from highest to lowest, with association:\n0: () (—)\n1: post++/--, dot (L→R)\n2: pre++/--, unary +/–, ! (R→L)\n3: (type), new (R→L)\n4: *, /, % (L→R)\n5: +, -; string + (L→R)\n6: <, >, <=, >= (L→R)\n7: ==, != (L→R)\n8: ^ (L→R)\n9: && (L→R)\n10: || (L→R)\n11: =, +=, -=, *=, /=, %= (R→L)\nPseudocode:\n  precedenceList = [...as above...]  associationMap = {...}\nAnalogy: like the hierarchy of emergency services—fire, police, medical—each has a distinct priority and order of response."
+      },
+      {
+        "prompt": "What is a control structure in Java and what have we learned so far?\\n",
+        "response": "A control structure changes a program’s flow of execution. We’ve used if, if/else for selection, while for repetition, and method calls for modular tasks.\\nPseudocode:\\n  IF (condition) THEN pathA ELSE pathB\\n  WHILE (cond) { repeat; }\\n  call someMethod();\\nAnalogy: like traffic signals (if/else), roundabouts (while loops), and service calls (methods) directing cars through a city."
+      },
+      {
+        "prompt": "When should you use a for-loop in Java?\\n",
+        "response": "Use a for-loop (counting loop) when you know in advance exactly how many iterations are needed.\\nPseudocode:\\n  FOR i FROM start TO end STEP step DO\\n    performTask(i)\\n  END_FOR\\nAnalogy: like baking dozen cookies—you know you need exactly 12, so you iterate 12 times."
+      },
+      {
+        "prompt": "What distinguishes a while-loop from a do-while-loop?\\n",
+        "response": "A while-loop tests the condition before each iteration (0 or more runs); a do-while-loop tests it after (1 or more runs).\\nPseudocode:\\n  WHILE (cond) { body }\n  DO { body } WHILE (cond)\nAnalogy: while is like checking weather before going out; do-while is like stepping outside at least once, then checking."
+      },
+      {
+        "prompt": "What is a conditional loop and when is it used?\\n",
+        "response": "Conditional loops (while, do-while) repeat as long as a runtime condition holds, suitable when the number of iterations depends on data rather than a fixed count.\\nPseudocode:\\n  WHILE (input not sentinel) { process(input); readNext(); }\nAnalogy: like sipping coffee until it's finished—you stop only when the cup is empty."
+      },
+      {
+        "prompt": "How does the switch statement complement if/else?\\n",
+        "response": "Switch allows multi-way branching based on a single expression’s discrete values, often clearer than chained if/else for many cases.\\nPseudocode:\\n  SWITCH (value) {\n    CASE x: actionX; BREAK;\n    CASE y: actionY; BREAK;\n    DEFAULT: actionDefault;\n  }\nAnalogy: like a train junction with multiple tracks—you choose exactly one track based on the train’s destination code."
+      },
+      {
+        "prompt": "What are loop bounds and why are they important?\\n",
+        "response": "Loop bounds define when a loop starts and ends; proper design (initializer, condition, updater) prevents infinite loops and ensures correct iteration counts.\\nPseudocode:\\n  i = 0; WHILE (i < N) { …; i++; }\nAnalogy: like setting a race start line (initializer), finish line (condition), and lap counter (updater) to run exactly N laps."
+      },
+      {
+        "prompt": "What are the key principles of structured programming?\\n",
+        "response": "Structured programming advocates clear control constructs (sequence, selection, iteration), single-entry/single-exit blocks, and modular decomposition for readability and maintainability.\\nPseudocode: none (principle)\nAnalogy: like organizing a cookbook into appetizers, mains, desserts (modules) and following each recipe step-by-step (structured flow)."
+      },
+      {
+        "prompt": "Why is choosing the right control structure critical to problem solving?\\n",
+        "response": "Selecting for, while, do-while, or switch based on the problem’s repetition or decision needs leads to clearer, more efficient code and prevents logic errors.\\nPseudocode: none (concept)\nAnalogy: like choosing the correct tool—hammer for nails, screwdriver for screws—so the job is done correctly and efficiently."
+      },
+      {
+        "prompt": "What is a repetition structure in Java and when is it used?\\n",
+        "response": "A repetition structure repeats a statement or block while a condition holds or for a fixed count, handling tasks like data processing or iteration.\\nPseudocode:\\n  WHILE (condition) { body } OR FOR i FROM start TO end { body }\\nAnalogy: like a washing machine cycle—it repeats rinse, spin, and drain until the load is clean."
+      },
+      {
+        "prompt": "How can you count occurrences of the letter 'a' in a document using a loop?\\n",
+        "response": "Initialize a counter at 0, loop over each character, and increment when you see 'a'.\\nPseudocode:\\n  totalAs = 0\\n  FOR EACH ch IN document DO\\n    IF (ch == 'a') THEN totalAs++\\n  END_FOR\\n  RETURN totalAs\\nAnalogy: like scanning a page and tallying each time you spot a red dot."
+      },
+      {
+        "prompt": "How would you print numbers 1 through 5000 on invitation cards using a loop?\\n",
+        "response": "Use a counting loop from 1 to 5000 and print each number.\\nPseudocode:\\n  FOR N FROM 1 TO 5000 DO\\n    print(N)\\n  END_FOR\\nAnalogy: like stamping sequential ticket numbers at a busy box office."
+      },
+      {
+        "prompt": "How do you compute an average with a sentinel-controlled loop for bear sightings?\\n",
+        "response": "Use a loop that reads inputs until a sentinel (9999) appears, summing valid counts and counting entries, then divide.\\nPseudocode:\\n  sum = 0; count = 0;\n  DO\n    input = readNumber();\n    IF (input != 9999) THEN\n      sum += input; count++;\n  WHILE (input != 9999)\n  average = sum / count;\n  RETURN average;\nAnalogy: like counting apples in baskets until you reach an empty basket marker, then computing the average per basket."
+      },
+      {
+        "prompt": "How can you search a file for a specific record with a loop when you don’t know its position?\\n",
+        "response": "Use a loop that reads records until the target name appears, then process it.\\nPseudocode:\\n  DO\n    record = readRecord();\n  WHILE (record.name != \"Erika Wilson\")\n  gpa = computeGPA(record);\n  RETURN gpa;\nAnalogy: like flipping through pages of a yearbook until you find your friend’s picture, then reading their info."
+      },
+      {
+        "prompt": "What is the difference between counting loops and non-counting loops?\\n",
+        "response": "Counting loops (for) run a known number of times; non-counting loops (while/do-while) run until a runtime condition or sentinel value is met.\\nPseudocode:\\n  FOR i = 1 TO N DO … // counting\n  WHILE (not done) DO … // non-counting\nAnalogy: counting loops are like baking a fixed dozen cookies; non-counting loops are like stirring soup until it tastes right."
+      },
+      {
+        "prompt": "What is a counting loop in Java and when should it be used?\\n",
+        "response": "A counting loop (counter-controlled loop) repeats a block exactly N times when you know the repetition count in advance. Use it for tasks like printing numbers 1–100 or processing each element in a fixed-size array.\\nPseudocode:\\n  total = 0;\n  i = 1;\n  WHILE (i ≤ N) {\n    process(i);\n    i++;\n  }\nAnalogy: like baking a fixed dozen cookies—you set the oven timer once for 12 batches."
+      },
+      {
+        "prompt": "How can you implement a counting loop with a while statement?\\n",
+        "response": "Declare and initialize a counter before the loop, test it in the while condition, and update it inside the loop body.\\nPseudocode:\\n  counter = 0;\n  WHILE (counter < 10) {\n    doTask();\n    counter = counter + 1;\n  }\nAnalogy: like filling ten cups of water by pouring one cup at a time and counting pours until you reach ten."
+      },
+      {
+        "prompt": "What is the syntax of a for statement in Java?\\n",
+        "response": "A for statement bundles the initializer, loop entry condition, and updater in one line: for(initializer; condition; updater) { body }.\\nPseudocode:\\n  FOR (i = start; i < end; i = i + step) {\n    loopBody(i);\n  }\nAnalogy: like programming a coffee machine with start time, brew condition, and automatic stop—all set upfront."
+      },
+      {
+        "prompt": "Describe the evaluation order of the for loop components.\\n",
+        "response": "1. Evaluate initializer once.\\n2. Check loop entry condition—if true, execute body.\\n3. After body, evaluate updater.\\n4. Reevaluate condition and repeat until false.\\nPseudocode trace:\\n  init→cond?→body→update→cond?→...→exit\\nAnalogy: like a skateboard ramp loop: start at top (initializer), check if enough speed (condition), ride loop (body), pedal to gain speed (updater), repeat until speed insufficient."
+      },
+      {
+        "prompt": "What is the scope of a loop variable declared in a for header?\\n",
+        "response": "A variable declared in the for header (e.g., for(int k=0;…)) has scope limited to the loop body; referring to it after the loop causes a syntax error.\\nPseudocode:\\n  FOR (int k = 0; k < 5; k++) { … }\n  USE k here // error\nAnalogy: like a backstage pass that only works during the show—you can’t access the stage after the performance ends."
+      },
+      {
+        "prompt": "How can you use a loop variable outside a for loop?\\n",
+        "response": "Declare the variable before the for loop, then reuse it in the header; its value after the loop reflects the final count.\\nPseudocode:\\n  int k;\n  FOR (k = 0; k < 5; k++) {\n    …\n  }\n  PRINT k; // 5\nAnalogy: like keeping score on a scoreboard that remains visible after the game ends."
+      },
+      {
+        "prompt": "What is a loop bound in a counting loop?\\n",
+        "response": "A loop bound is the target value that a counter-controlled loop tests in its entry condition to decide when to stop. The loop runs until the counter reaches that bound.\\nPseudocode:\\n  FOR i = start TO bound DO\\n    body\\n  END_FOR\\nAnalogy: like running laps around a track until you’ve completed exactly 10 laps."
+      },
+      {
+        "prompt": "What causes an infinite loop and how can you prevent it?\\n",
+        "response": "An infinite loop occurs when the counter or condition never reaches its bound—e.g., decrementing when you should increment. Ensure the updater moves the counter toward the bound.\\nPseudocode:\\n  FOR (i=0; i<100; i--) … // wrong updater → infinite\\nAnalogy: like walking away from your destination—you’ll never arrive unless you head in the right direction."
+      },
+      {
+        "prompt": "Why do these loops never terminate?\\n",
+        "response": "1) k starts at 0 and decrements, so it never reaches k<100 false.\\n2) k increments by 2 from odd values, so it never equals 100.\\n3) k halves from 98, eventually stalls at 0, never reaching 100.\\nAnalogy: like a staircase that only goes down (never up), an odd-only elevator (skips the floor you need), or a shrinking balloon that never bursts—you never hit the exit condition."
+      },
+      {
+        "prompt": "What is important about loop design?\\n",
+        "response": "To guard against infinite loops, ensure the loop’s updater expression guarantees the loop bound will eventually be reached.\\nPseudocode:\\n  // updater must move counter toward bound\n  FOR (i = 0; i < N; i++) { … }\nAnalogy: like pacing yourself on a hike—you must keep moving uphill to reach the summit."
+      },
+      {
+        "prompt": "How should you indent loop bodies for readability?\\n",
+        "response": "Indent the statement(s) inside the loop to distinguish the body from the header and subsequent code.\\nPseudocode:\\n  FOR (…)  // heading\n      statement;  // body indented\n  nextStatement;  // after loop\nAnalogy: like neatly bracketing a chapter in a book—indent paragraphs inside the chapter title."
+      },
+      {
+        "prompt": "What is important about loop indentation?\\n",
+        "response": " Loop indentation is purely stylistic and does not affect Java’s execution. Only braces or a single semicolon-terminated statement define the loop body.\\nPseudocode:\\n  FOR (…) statement;  // single-body without braces\nAnalogy: like indenting text in an email—it looks organized but doesn’t change the meaning."
+      },
+      {
+        "prompt": "Can a loop body consist of a single if statement without braces?\\n",
+        "response": "Yes. A single statement (including an if) after the loop header is the loop body. Any following unindented statement runs after the loop.\\nPseudocode:\\n  FOR (i=0; i<10; i++)\n    IF (i%2==0) PRINT(i);\n  PRINT(\"Done\");\nAnalogy: like a one-lane bridge—you drive across the bridge (if statement) repeatedly, then exit to the highway (next print)."
+      },
+      {
+        "prompt": "How do braces affect loop body scope and variable lifetime?\\n",
+        "response": "Using braces creates a block: you can declare local variables inside, and their scope ends at the closing brace. Without braces, only the next statement is in the loop.\\nPseudocode:\\n  FOR (…) {\n    int x = compute(i);\n    PRINT(x);\n  }\n  // x no longer exists here\nAnalogy: like unpacking a toolbox inside a tent—you can use tools only inside the tent (braces); once you exit, the tools are packed away."
+      },
+      
+      {
+        "prompt": "What is important about the loop body in a for statement?\\n",
+        "response": "The body of a for loop is the statement immediately following its heading, which can be a single statement or a block in braces {…}.\\nPseudocode:\\n  FOR (i=1; i<=10; i++) {\n    doSomething(i);\n  }\nAnalogy: like a train’s engine (heading) pulling either one car (single statement) or a whole train (block of statements)."
+      },
+      {
+        "prompt": "Why should you always use braces for loop bodies, even if there's only one statement?\\n",
+        "response": "Using braces consistently prevents errors when adding statements later and ensures the intended block is iterated.\\nPseudocode:\\n  FOR (...) {\n    action1;\n    action2;  // safe to add inside braces\n  }\nAnalogy: like always wearing a sturdy box (braces) around your items—even if packing one item now, you can add more later without repacking."
+      },
+      {
+        "prompt": "What is important about missing braces and why is it a pitfall?\\n",
+        "response": "Novices often forget braces, causing only the first statement to loop and leaving others outside unintentionally.\\nPseudocode:\\n  FOR (...)  // missing {\n    stmt1;\n  stmt2;      // stmt2 runs once, not in loop\nAnalogy: like forgetting to buckle part of a safety harness—only the first strap holds you, the rest flop free."
+      },
+      {
+        "prompt": "What is a nested loop and when would you use one?\\n",
+        "response": "A nested loop places one loop inside another, useful for 2D tasks like printing multiplication tables or patterns.\\nPseudocode:\\n  FOR row FROM 1 TO R DO\n    FOR col FROM 1 TO C DO\n      print(valueAt(row,col));\n    END_FOR\n    println();\n  END_FOR\nAnalogy: like painting a grid of squares—outer loop picks the row, inner loop paints each cell in that row."
+      },
+      {
+        "prompt": "In the table-printing example (rows 1–4, cols 1–9), how many times does the inner loop execute and how many body executions occur?\\n",
+        "response": "The inner loop runs once per outer iteration (4 times total). Its body executes 9 times per outer loop, for 4×9=36 total executions.\\nPseudocode trace:\\n  FOR row=1 TO 4 {\n    // inner loop starts 4 times\n    FOR col=1 TO 9 { print(row*col); } // 9×4 = 36 prints\n  }\nAnalogy: like ringing a bell 9 times for each of 4 guests—4 visits, 9 rings each, 36 rings overall."
+      },
+      {
+        "prompt": "How should you indent nested loops for readability?\\n",
+        "response": "Indent each loop level further than its parent to visually separate nesting and clarify scope.\\nPseudocode:\\n  FOR i .. {\n    FOR j .. {\n      action(i,j);\n    }\n    endOfRowAction();\n  }\nAnalogy: like drawing concentric circles with increasing offsets—each circle is visibly nested within the previous."
+      },
+      {
+        "prompt": "How do you use a nested loop to print a decreasing pattern of symbols?\\n",
+        "response": "Outer loop for rows, inner loop bound depends on row number, printing rowCount symbols per row.\\nPseudocode:\\n  FOR row FROM 1 TO N DO\n    FOR col FROM 1 TO (N - row + 1) DO\n      print(\"# \");\n    END_FOR\n    println();\n  END_FOR\nAnalogy: like stacking blocks where each layer has one fewer block than the one below, building a decreasing pyramid."
+      },
+      {
+        "prompt": "What is a noncounting loop and when would you use a sentinel bound?\\n",
+        "response": "A noncounting loop repeats until a runtime condition (sentinel) is met, useful when you don’t know the number of iterations in advance.\\nPseudocode:\\n  WHILE (value != sentinel) DO\\n    process(value);\\n    update(value);\\n  END_WHILE\\nAnalogy: like walking until you find a specific landmark—you stop only when you see it, not after a fixed number of steps."
+      },
+      {
+        "prompt": "How do you implement the 3N+1 problem with a loop?\\n",
+        "response": "Use a while loop that continues until N equals 1, updating N by dividing if even or 3N+1 if odd.\\nPseudocode:\\n  WHILE (N != 1) DO\n    PRINT(N);\n    IF (N % 2 == 0) THEN N = N / 2;\n    ELSE N = 3 * N + 1;\n  END_WHILE\n  PRINT(1);\nAnalogy: like repeatedly folding a paper—if it’s even width fold in half, if odd width triple plus one fold until it’s size one."
+      },
+      {
+        "prompt": "Why can’t the 3N+1 sequence be coded as a counting loop?\\n",
+        "response": "Because the number of steps to reach 1 varies by starting N and is unpredictable, so you cannot predefine the iteration count—must loop until sentinel N==1.\\nAnalogy: like climbing a hill of unknown height—you keep climbing until you reach the summit, not for a fixed number of steps."
+      },
+      {
+        "prompt": "What is Principle 6.6.1 about loop structure in Java?\\n",
+        "response": "Principle 6.6.1: A proper loop needs three parts—initializer, loop-entry condition, and updater—so the loop will eventually terminate.\\nPseudocode:\\n  initializer;\n  WHILE (condition) {\n    body;\n    updater;\n  }\nAnalogy: like setting a car’s starting gear (initializer), checking the fuel gauge each mile (condition), and burning fuel per mile (updater) to ensure the trip ends."
+      },
+      {
+        "prompt": "How do you calculate grass loss days with a do-while loop?\\n",
+        "response": "Use a do-while that subtracts 2% daily and counts days until grass < 50%, then convert days to weeks.\\nPseudocode:\\n  amtGrass = 100.0; days = 0;\n  DO {\n    amtGrass -= amtGrass * 0.02;\n    days++;\n  } WHILE (amtGrass > 50.0);\n  PRINT(days / 7);\nAnalogy: like eating a cake slice by slice and counting days until half remains, then dividing days by 7 for weeks."
+      },
+      {
+        "prompt": "What is a limit bound in loop design?\\n",
+        "response": "A limit bound terminates a loop when a variable crosses a threshold (e.g., amtGrass ≤ 50%), often tested after the loop body in do-while.\\nAnalogy: like cooking soup until its temperature drops below a safe threshold—you always taste at least once before checking."
+      },
+      {
+        "prompt": "When should you use a do-while loop instead of a while loop?\\n",
+        "response": "Use do-while when the loop must execute at least once before testing the condition, such as decrementing grass until below 50%.\\nAnalogy: like taking the first scoop of ice cream then checking if you’re full—you always eat at least one scoop before deciding."
+      },
+      {
+        "prompt": "How do you use a do-while loop to implement the grass-loss algorithm in Java?\\n",
+        "response": "Use a do-while that subtracts a fixed percentage each day and counts days until remaining grass ≤ target.\\nPseudocode:\\n  amtGrass = 100.0; days = 0;\n  DO {\n    amtGrass -= amtGrass * LOSSRATE;\n    days++;\n  } WHILE (amtGrass > perCentGrass);\n  RETURN days / 7;\nAnalogy: like checking your bank balance at least once, then repeating withdrawals until you hit a minimum threshold."
+      },
+      {
+        "prompt": "What is the syntax of the do-while statement in Java?\\n",
+        "response": "do { loop body } while (loop condition); — the condition is tested after executing the body.\\nPseudocode:\\n  do {\n    body;\n  } while (condition);\nAnalogy: like eating one spoon of soup before checking if you’re still hungry—always at least one taste."
+      },
+      {
+        "prompt": "Why do-while loops separate initializer and updater from the loop header?\\n",
+        "response": "Unlike for loops, do-while has no built-in slots for init/update; you must code initializers before/inside the body and updaters within the body.\\nPseudocode:\\n  init;\n  do {\n    body;\n    update;\n  } while (cond);\nAnalogy: like setting a recipe’s ingredients beforehand and stirring at the end of each cycle—you supply steps manually."
+      },
+      {
+        "prompt": "What is the general do-while loop structure with multiple initializers?\\n",
+        "response": "Initializer1; do { Initializer2; body; updater; } while(condition); — you can place setup code before or inside the body as needed.\\nPseudocode:\\n  setup1;\n  do {\n    setup2;\n    body;\n    update;\n  } while (cond);\nAnalogy: like prepping tools before starting, then rechecking setup inside the loop before each iteration."
+      },
+      {
+        "prompt": "Give an example where a do-while loop is appropriate\\n",
+        "response": "Dial at least once and hang up if busy; keep dialing while busy.\\nPseudocode:\\n  do {\n    dial(number);\n    IF (busySignal) hangUp();\n  } while (busySignal);\nAnalogy: like ringing a doorbell until someone answers—you always ring at least once."
+      },
+      {
+        "prompt": "What is the point of a do-while loops?\\n",
+        "response": "Use do-while for problems requiring at least one iteration before condition check.\\nAnalogy: like tasting a dish at least once before deciding if more seasoning is needed."
+      },
+      {
+        "prompt": "When should you prefer a while loop over a do-while loop?\\n",
+        "response": "While is more general for noncounting loops; use do-while only when you must execute the loop body at least once.\\nAnalogy: while is like checking the mailbox (might be empty); do-while is like opening a gift—always open it at least once."
+      },
+      {
+        "prompt": "Why encapsulate code in a method for modularity?\\n",
+        "response": "Encapsulating repetitive or related code in a method avoids redundancy and promotes reuse.\\nAnalogy: like creating a reusable stamp for address labels instead of handwriting each one."
+      },
+      {
+        "prompt": "How does localization help debugging ?\\n",
+        "response": "Localizing repeated code into one method means fixes in one place propagate everywhere, simplifying debugging.\\nAnalogy: like updating a map’s symbol legend in one spot, and all map pages reflect the change."
+      },
+      {
+        "prompt": "What are best practices for user interface prompts in loops?\\n",
+        "response": "Always prompt clearly what input is needed and confirm receipt to guide the user and avoid confusion.\\nPseudocode:\\n  PROMPT(\"Enter value > \");\n  input = read();\n  CONFIRM(\"You entered: \" + input);\nAnalogy: like a shopkeeper repeating back your order to ensure it’s correct before preparing it."
+      },
+      {
+        "prompt": "What is structured programming and why was it developed?\\n",
+        "response": "Structured programming builds programs from a small set of control structures (sequence, selection, loops) instead of unrestricted gotos, to avoid \"spaghetti code\". It emerged in reaction to unstructured code’s complexity and maintenance problems in the 1960s.\\nPseudocode:\\n  // sequence, if-else, while, for only\n  stmt1;\n  IF (cond) THEN stmt2; ELSE stmt3;\n  WHILE (cond) DO stmt4; END_WHILE;\nAnalogy: like using pre-fab building blocks rather than randomly nailing boards—you get a clear, maintainable structure."
+      },
+      {
+        "prompt": "Why is goto considered harmful compared to structured control?\\n",
+        "response": "goto jumps to arbitrary locations, creating multiple entry/exit points, making flow hard to follow and debug. Structured constructs guarantee single entry and exit, simplifying reasoning.\\nPseudocode goto example:\\n  stmtA;\n  GOTO labelX;\n  stmtB;\n  labelX: stmtC;\nAnalogy: like teleporting around a museum without following halls—you lose track of where you’ve been and what you’ve skipped."
+      },
+      {
+        "prompt": "What are the four basic control structures in structured programming?\\n",
+        "response": "They are: sequence (one-after-another), selection (if-then-else), while loops (pre-test repetition), and do-while loops (post-test repetition). All program flow can be built from these.\\nPseudocode:\\n  // sequence: stmt1; stmt2;\n  IF (cond) THEN stmt3; ELSE stmt4;\n  WHILE (cond) DO stmt5; END_WHILE;\n  DO stmt6; WHILE (cond);\nAnalogy: like LEGO blocks—four block shapes that you combine to build any structure."
+      },
+      {
+        "prompt": "What is the single-entry/single-exit property and its benefit?\\n",
+        "response": "Each structured block (if, while, for) has exactly one entry and one exit, so control always returns predictably. This confines errors and aids debugging.\\nPseudocode:\\n  someMethod() {\n    // entry here\n    ...\n    // exit here\n  }\nAnalogy: like a toll booth on a bridge—you enter at one gate and exit at one gate, so traffic flow is controlled and traceable."
+      },
+      {
+        "prompt": "How do preconditions and postconditions help in design and debugging?\\n",
+        "response": "Preconditions state what must be true before a code segment runs; postconditions state what will be true after. Logging those helps localize bugs.\\nPseudocode:\\n  // Pre: k == 0\n  k = 5;\n  // Post: k == 5\nAnalogy: like a contract checklist before and after a task—verify input state and confirm output state to ensure correctness."
+      },
+      {
+        "prompt": "Give an example of documenting pre/postconditions for a factorial method.\\n",
+        "response": "Precondition: n ≥ 0; Postcondition: result == n! (1 if n==0, otherwise n*(n-1)*…*1).\\nPseudocode:\\n  FUNCTION factorial(n) {\n    // Pre: n >= 0\n    IF (n == 0) RETURN 1;\n    ELSE {\n      result = 1;\n      FOR i FROM n DOWNTO 1 DO result *= i;\n      RETURN result;\n    }\n    // Post: returned value == n!\n  }\nAnalogy: like specifying that given 3 ingredients (n), you make a 3-layer cake (n!)—input size and output outcome are clear."
+      },
+      {
+        "prompt": "Why is structured programming still relevant in object-oriented design?\\n",
+        "response": "Algorithms inside methods still use structured control for clarity and maintainability. OOP organizes data and methods, but structured principles govern their internal logic.\\nPseudocode inside a method uses only structured loops and conditionals.\\nAnalogy: like using good sentence grammar (structured) inside chapters of a novel (OOP)—both matter for readability."
+      },
+      {
+        "prompt": "How do pre- and postconditions define the semantics of an assignment statement?\\n",
+        "response": "An assignment ‘k = 5’ has no precondition on k’s prior value; its postcondition is simply k == 5 after execution.\\nPseudocode:\\n  // Pre: any value of k\n  k = 5;\n  // Post: k == 5\nAnalogy: like resetting a timer—you don’t care what it read before, after you set it it reads zero."
+      },
+      {
+        "prompt": "What postcondition follows from a while loop with entry condition k < 100?\\n",
+        "response": "When a while(k < 100) loop exits, its postcondition is k >= 100, since exit only occurs once the test fails.\\nPseudocode:\\n  WHILE (k < 100) DO k++;\n  // Post: k >= 100\nAnalogy: like climbing steps until you reach floor 100—you only stop when you’ve reached or passed it."
+      },
+      {
+        "prompt": "How is factorial(n) defined with pre- and postconditions?\\n",
+        "response": "Precondition: n ≥ 0. Postcondition: if n==0 then result==1; else result==n×(n−1)×…×1.\\nPseudocode:\\n  FUNCTION factorial(n):\n    // Pre: n >= 0\n    IF (n == 0) RETURN 1;\n    ELSE {\n      f = 1;\n      FOR k FROM n DOWNTO 1 DO f *= k;\n      RETURN f;\n    }\n    // Post: returned value == n!\nAnalogy: like folding paper n times to get n layers—0 folds yields 1 layer; else multiply layers each fold."
+      },
+      {
+        "prompt": "How does the factorial method accumulate its result?\\n",
+        "response": "It initializes f = 1, then loops k from n down to 1, updating f = f * k each iteration to build the product.\\nPseudocode:\\n  f = 1;\n  FOR k = n DOWNTO 1 DO\n    f = f * k;\n  RETURN f;\nAnalogy: like pouring one cup at a time into a bottle, multiplying its capacity step by step."
+      },
+      {
+        "prompt": "How can you defend against invalid preconditions in factorial()?\\n",
+        "response": "Check if n < 0 at start and throw IllegalArgumentException if so.\\nPseudocode:\\n  IF (n < 0) THEN THROW IllegalArgumentException(\"Bad n: \" + n);\n  // rest of factorial\nAnalogy: like refusing to bake a cake if you have negative eggs—you stop immediately and report the problem."
+      },
+      {
+        "prompt": "What happens when you throw an IllegalArgumentException?\\n",
+        "response": "Throwing the exception halts execution, unwinds the call stack, and prints a message with the illegal argument.\\nPseudocode:\\n  THROW new IllegalArgumentException(\"Factorial:\" + n);\nAnalogy: like pulling the emergency brake—it stops the train and displays why you pulled it."
+      },
+      {
+        "prompt": "In what development stages do pre/postconditions help?\\n",
+        "response": "They aid in design (clarify spec), implementation/testing (design tests), documentation (readability), and debugging (isolate errors).\\nAnalogy: like a blueprint (design), prototype tests (testing), user manual (documentation), and diagnostic tests (debugging) guiding each phase."
+      },
+      {
+        "prompt": "Why should you use pre- and postconditions in program design?\\n",
+        "response": "They force you to analyze each method or loop’s logic in isolation, clarifying what must hold before and after execution, and help ensure changes elsewhere don’t break correctness.\\nPseudocode:\\n  // Pre: input >= 0\n  result = compute(input);\n  // Post: result satisfies spec\nAnalogy: like writing a contract for each subcontractor—you know exactly what they expect and deliver, regardless of other site changes."
+      },
+      {
+        "prompt": "When should pre- and postconditions be identified and documented?\\n",
+        "response": "At the earliest design stage, and maintained through development, testing, debugging, and in final documentation.\\nPseudocode:\\n  /**\n   * Pre: x >= 0\n   * Post: returns x squared\n   */\nAnalogy: like drafting a blueprint before construction begins and keeping it updated as you build."
+      },
+      {
+        "prompt": "How does reducing complexity improve program design?\\n",
+        "response": "Simpler programs are easier to understand, test, and maintain. Aim to minimize unnecessary branching and deeply nested structures.\\nPseudocode:\\n  // Refactor complex nested ifs into small methods\n  methodA();\n  methodB();\nAnalogy: like decluttering a room—you can find and fix things faster when there's less clutter."
+      },
+      {
+        "prompt": "What is the benefit of using standard programming techniques?\\n",
+        "response": "Standard solutions to common problems are proven, familiar, and less error-prone, speeding development and reducing bugs.\\nPseudocode:\\n  // swap a and b using temp\n  temp = a; a = b; b = temp;\nAnalogy: like using a standard recipe—follows a known process that works every time."
+      },
+      {
+        "prompt": "How does encapsulation reduce complexity?\\n",
+        "response": "By grouping related code into methods, you hide implementation details and present a simple interface, making the overall program structure clearer.\\nPseudocode:\\n  FUNCTION calculateTax(amount) { ... }\n  // elsewhere\n  totalTax = calculateTax(subtotal);\nAnalogy: like using a remote control—press one button instead of juggling dozens of wires."
+      },
+      {
+        "prompt": "Why should you reuse library classes and methods?\\n",
+        "response": "Library code is well-tested and maintained by experts, so reusing it saves time, ensures reliability, and reduces your own testing burden.\\nPseudocode:\\n  import java.util.List;\n  List<String> items = new ArrayList<>();\nAnalogy: like buying pre-made building materials instead of crafting each brick yourself—you benefit from professional quality."
+      },
+      {
+        "prompt": "What is the Java String data type and why is it important?\\n",
+        "response": "String is a class representing a sequence of characters plus methods to manipulate them. It’s essential for all text I/O—console, GUI components like JTextField/JLabel, and object representation.\\nPseudocode:\\n  String s = new String(\"Hello\");\n  int len = s.length();\nAnalogy: like a train (characters) plus its operator (methods) that can split, join, or inspect the cars."
+      },
+      {
+        "prompt": "How do string literals differ from other objects in Java?\\n",
+        "response": "Literal strings (e.g., \"Hello\") can be used directly without new String(), support concatenation with +, and are interned by the JVM. Other objects require constructors.\\nPseudocode:\\n  String a = \"Hi\" + \" there\"; // OK\n  String b = new String(\"Hi there\"); // explicit\nAnalogy: like pre-baked cookies vs. baking dough from scratch—you can eat literals immediately."
+      },
+      {
+        "prompt": "How can you convert an int to a String for display?\\n",
+        "response": "Use Integer.toString(n) or rely on toString() inside System.out.println.\\nPseudocode:\\n  int x = 42;\n  String sx = Integer.toString(x);\n  System.out.println(sx);\nAnalogy: like translating a number into words so it can appear in a sentence."
+      },
+      {
+        "prompt": "What is the role of Object.toString() in Java?\\n",
+        "response": "Every class inherits toString(), providing a textual representation. Overriding it lets you display object state in GUIs or logs.\\nPseudocode:\\n  class MyObj { public String toString() { return \"MyObj:\"+value; } }\nAnalogy: like giving every toy a name tag—so when you show it, you know what it is."
+      },
+      {
+        "prompt": "Why are Strings considered an example of a data structure?\\n",
+        "response": "A String organizes characters in sequence, offering indexed access and common algorithms (search, split, concat). It’s the first collection type you learn.\\nPseudocode:\\n  for (int i=0; i < s.length(); i++) char c = s.charAt(i);\nAnalogy: like a bead necklace—each bead is a char, and you can count, find, or remove beads."
+      },
+      {
+        "prompt": "What string-processing classes will be covered in the chapter?\\n",
+        "response": "You’ll learn String, StringBuffer for mutable sequences, and StringTokenizer for splitting text, plus common algorithms like search, substring, and rearrangement.\\nPseudocode:\\n  StringBuffer sb = new StringBuffer(\"abc\"); sb.append(\"def\");\nAnalogy: like different kitchen tools—String is knife and cutting board, StringBuffer is mixing bowl, StringTokenizer is sifter."
+      },
+      {
+        "prompt": "How are Strings used in word processor operations?\\n",
+        "response": "Cut-and-paste moves substrings within a document: extract one segment and insert it elsewhere via concatenation and substring methods.\\nPseudocode:\\n  String doc = \"HelloWorld\";\n  String cut = doc.substring(5,10);\n  String result = doc.substring(0,5) + \"Sweet\" + cut;\nAnalogy: like using scissors and glue—cut out a phrase and stick it somewhere else."
+      },
+      {
+        "prompt": "What makes literal-string concatenation unique in Java?\\n",
+        "response": "You can write \"A\" + \"B\" directly, and the compiler folds it into \"AB\" at compile time, reducing runtime overhead.\\nPseudocode:\\n  String s = \"foo\" + \"bar\"; // becomes \"foobar\"\nAnalogy: like gluing two printed labels before shipping, so the package only shows the final combined label."
+      },
+      {
+        "prompt": "How do you create an empty String in Java?\\n",
+        "response": "Use the default constructor: `String s = new String();` which makes an object with value \"\" and length 0.\\nPseudocode:\\n  String s = new String();  // s → \"\" (empty)\\nAnalogy: like ordering a blank sheet of paper—there’s something there, but it’s empty."
+      },
+      {
+        "prompt": "How do you make a copy of an existing String object?\\n",
+        "response": "Use the copy constructor: `String s2 = new String(s1);` to get a distinct object with the same characters.\\nPseudocode:\\n  String s1 = new String(\"Hello\");\\n  String s2 = new String(s1);  // s2 is a separate \"Hello\"\\nAnalogy: like photocopying a document—you get a new paper with the same content."
+      },
+      {
+        "prompt": "What happens when you use a string literal in Java?\\n",
+        "response": "A single pooled object is created (if not existing), and the literal acts as its reference. Multiple occurrences share that one object.\\nPseudocode:\\n  String a = \"Socrates\";\\n  String b = \"Socrates\";  // a and b point to same pool object\\nAnalogy: like having one original painting on display, and all references point to it instead of making copies."
+      },
+      {
+        "prompt": "How do `new String(\"...\" )` and a literal differ?\\n",
+        "response": "`new String(\"X\")` always makes a fresh object, even if \"X\" exists in the pool. A literal just points into the pool without creating new memory.\\nPseudocode:\\n  String p = \"\";          // pool empty string\n  String q = new String(); // separate empty-string object\nAnalogy: like having a central library copy (literal) vs. printing your own private copy (`new`), even if the content is identical."
+      },
+      {
+        "prompt": "What is Java’s policy on literal string pooling?\\n",
+        "response": "Only one object per literal is created at class load. All references to that literal share it, saving memory. No constructor is invoked when assigning a literal.\\nPseudocode:\\n  String x = \"\";\n  String y = \"\"; // y reuses x’s object\nAnalogy: like everyone sharing the same public restroom (literal) rather than installing private toilets (`new`)."
+      },
+      {
+        "prompt": "When does `new String()` actually allocate memory?\\n",
+        "response": "Only when you explicitly call the constructor—e.g., `new String()` or `new String(existing)`. Simple declarations or literal assignments don’t allocate new objects.\\nPseudocode:\\n  String a;                // no object\n  String b = \"Hello\";     // literal pool only\n  String c = new String();  // allocates new empty string\nAnalogy: like building a new house (`new`) vs. just pointing at an existing one (literal)."
+      },
+      {
+        "prompt": "How do you concatenate two Strings?\\n",
+        "response": "Either with the `+` operator when both operands are Strings, or `concat()`. `+` is overloaded for Strings.\\nPseudocode:\\n  String full = \"Jacqueline \" + \"Kennedy\" + lastName;\n  String joined = \"Jacqueline\".concat(lastName);\nAnalogy: like gluing two word tiles together—either manually (`concat`) or using a special joiner (`+`)."
+      },
+      {
+        "prompt": "What happens when you mix primitives with `+` on Strings?\\n",
+        "response": "Primitives are promoted to Strings by `toString()`, and `+` becomes concatenation unless parentheses force arithmetic first.\\nPseudocode:\\n  System.out.println(\"Sum = \" + (5 + 5));   // prints Sum = 10\n  System.out.println(\"Concat = \" + 5 + 5);   // prints Concat = 55\nAnalogy: like doing the math inside parentheses before writing the result, otherwise writing digits in sequence."
+      },
+      {
+        "prompt": "How do you find the number of characters in a Java String?\\n",
+        "response": "Call its `length()` method, which returns an int equal to the string’s length.\\nPseudocode:\\n  int n = s.length();  // n = number of characters in s\\nAnalogy: like measuring the length of a rope with a ruler—`length()` tells you how many units it spans."
+      },
+      {
+        "prompt": "How are characters in a Java String indexed?\\n",
+        "response": "Strings in Java use zero-based indexing: the first character is at index 0, the last at index `length() - 1`.\\nPseudocode:\\n  char c0 = s.charAt(0);          // first char\\n  char cLast = s.charAt(s.length()-1);  // last char\\nAnalogy: like seats in a theater labeled from 0 to N–1 rather than 1 to N."
+      },
+      {
+        "prompt": "What common errors arise from forgetting zero indexing?\\n",
+        "response": "Trying to access `s.charAt(1)` when you mean the first character (should be index 0), or looping `for (i = 1; i <= s.length(); i++)` will throw `StringIndexOutOfBoundsException`.\\nPseudocode:\\n  for (int i = 0; i < s.length(); i++) { /* correct */ }\\n  // WRONG: i = 1 to <= length()\\nDebug Tip: Always start at 0 and go up to `< length()`."
+      },
+      {
+        "prompt": "How do you convert a primitive value to its String representation?\\n",
+        "response": "Use the static `String.valueOf(...)` method for the appropriate type.\\nPseudocode:\\n  String si = String.valueOf(128);    // \"128\"\n  String sd = String.valueOf(3.14);   // \"3.14\"\n  String sb = String.valueOf(true);   // \"true\"\nAnalogy: like stamping a stamp on a number to turn it into a label you can stick anywhere."
+      },
+      {
+        "prompt": "Why use `String.valueOf()` instead of `\"\" + value`?\\n",
+        "response": "`valueOf()` explicitly states the conversion, improving readability and avoiding unintended concatenation rules. It’s also what the compiler may invoke under the hood.\\nPseudocode:\\n  // Implicit via +\n  String s1 = \"\" + x;  // works, but implicit\n  // Explicit\n  String s2 = String.valueOf(x);\nAnalogy: like writing out a clear instruction on a form rather than relying on a side effect of another process."
+      },
+      {
+        "prompt": "How do you find the first occurrence of a character in a Java String?\\n",
+        "response": "Use the instance method `indexOf(char)`, which scans left to right and returns the zero-based index of the first match, or –1 if not found.\\nPseudocode:\\n  int idx = s.indexOf('c');  // idx = position of first 'c' or –1\\nAnalogy: like finding the first red apple in a row from left to right."
+      },
+      {
+        "prompt": "How do you find the last occurrence of a character in a Java String?\\n",
+        "response": "Use `lastIndexOf(char)`, which scans right to left and returns the zero-based index of the last match, or –1 if not found.\\nPseudocode:\\n  int idx = s.lastIndexOf('c');  // idx = position of last 'c' or –1\\nAnalogy: like finding the last red apple in a row by searching from the right end."
+      },
+      {
+        "prompt": "How do you search for a character starting at a given index?\\n",
+        "response": "Use the two-parameter overloads: `indexOf(char, fromIndex)` or `lastIndexOf(char, fromIndex)`. They begin their search at `fromIndex` (inclusive) in the given direction.\\nPseudocode:\\n  int firstAfter5 = s.indexOf('c', 5);     // first 'c' at or after index 5\\n  int lastBefore5 = s.lastIndexOf('c', 5); // last 'c' at or before index 5\\nAnalogy: like starting your search partway down the row rather than at the ends."
+      },
+      {
+        "prompt": "How do you find the position of a substring within a Java String?\\n",
+        "response": "Use `indexOf(String)` or `lastIndexOf(String)` to search for the first or last occurrence of a substring. They return the start index of the substring or –1 if not found.\\nPseudocode:\\n  int idx1 = s.indexOf(\"sub\");      // first “sub” or –1\\n  int idx2 = s.lastIndexOf(\"sub\");  // last “sub” or –1\\nAnalogy: like looking for the first or last occurrence of a word in a sentence."
+      },
+      {
+        "prompt": "What does `indexOf` or `lastIndexOf` return when the target is not found?\\n",
+        "response": "They return –1, which cannot be a valid index in a string, to signal “not found.”\\nPseudocode:\\n  if (s.indexOf('x') == -1) { /* handle absence */ }\\nDebug Tip: Always check for –1 before using the returned index to avoid out-of-bounds errors."
+      },
+      {
+        "prompt": "How can you find every occurrence of a substring in a Java String?\\n",
+        "response": "Use a loop with `indexOf(keyword, start)` and continue until it returns –1.\\nPseudocode:\\n  List positions = []\\n  ptr = s.indexOf(keyword)\\n  while (ptr != -1) {\\n    add ptr to positions\\n    ptr = s.indexOf(keyword, ptr + 1)\\n  }\\nAnalogy: like scanning a paragraph for every appearance of a word by moving your bookmark one character past each find."
+      },
+      {
+        "prompt": "What sentinel value is used when searching a String, and how does it control the loop?\\n",
+        "response": "The sentinel is –1, returned by `indexOf` when nothing is found. The loop continues while `ptr != -1`, then exits.\\nPseudocode:\\n  ptr = s.indexOf(keyword)\\n  while (ptr != -1) { … ; ptr = s.indexOf(keyword, ptr + 1) }\\nDebug Tip: Always check for –1 before using the index to avoid an infinite loop or errors."
+      },
+      {
+        "prompt": "Outline the pseudocode for a keywordSearch method that reports count and positions.\\n",
+        "response": "Algorithm: 1) Initialize `resultStr = \"\"`, `count = 0`. 2) `ptr = s.indexOf(keyword)`.\\n3) While `ptr != -1`: increment count; append `ptr` to `resultStr`; `ptr = s.indexOf(keyword, ptr + 1)`.\\n4) Prepend `count + \": \"` to `resultStr`. 5) Return `resultStr`.\\nAnalogy: like tallying and listing page numbers where a term appears in a book index."
+      },
+      {
+        "prompt": "How do you build a single String showing both the number of matches and their indices?\\n",
+        "response": "Concatenate on each find: `resultStr = resultStr + ptr + \" \"`. After the loop, prefix: `resultStr = count + \": \" + resultStr`.\\nPseudocode:\\n  result = \"\"\\n  for each match at idx: result += idx + \" \"\\n  return count + \": \" + result\\nAnalogy: like writing “3: 5 12 20” on a board after marking each found spot."
+      },
+      {
+        "prompt": "What test cases should you use to verify a keywordSearch implementation?\\n",
+        "response": "Test: keyword at start, middle, end, multiple overlaps, and no occurrences.\\nExamples:\\n  – \"abcabc\" with \"ab\" → `2: 0 3`\\n  – \"hello\" with \"lo\" → `1: 3`\\n  – \"test\" with \"z\" → `0: `\\n  – \"aaa\" with \"aa\" → overlaps vs. step-by-1 behavior.\\nPrinciple: cover all edge and normal cases to confirm loop termination and correct positions."
+      },
+      {
+        "prompt": "Why is concatenating Strings with `resultStr = resultStr + ...` inside a loop inefficient?\\n",
+        "response": "Because Strings are immutable, each `+` creates a new String object and abandons the old one, leading to many short-lived objects and extra garbage collection overhead."
+      },
+      {
+        "prompt": "What does it mean that Java Strings are immutable?\\n",
+        "response": "Once created, the contents of a String cannot change. Any apparent modification actually produces a brand-new String object, leaving the original intact."
+      },
+      {
+        "prompt": "How does Java clean up unused String objects at runtime?\\n",
+        "response": "Java’s garbage collector automatically reclaims memory from objects no longer reachable—those with no remaining references—during its cleanup cycles."
+      },
+      {
+        "prompt": "Which class should you use for efficient, mutable string operations inside loops?\\n",
+        "response": "Use `java.lang.StringBuffer` (or `StringBuilder`) to append, insert, or modify characters without creating intermediate String objects."
+      },
+      {
+        "prompt": "What are some key mutator methods provided by StringBuffer?\\n",
+        "response": "`append(...)` adds data to the end, `insert(index, ...)` splices in data at a position, and `setCharAt(index, ch)` changes a character in place."
+      },
+      {
+        "prompt": "How do you initialize a `StringBuffer` from an existing String?\\n",
+        "response": "Use the `StringBuffer(String initial)` constructor: e.g. `new StringBuffer(\"Hello\")` creates a mutable buffer containing \"Hello\"."
+      },
+      {
+        "prompt": "How do you convert a `StringBuffer` back into a `String`?\\n",
+        "response": "Call its `toString()` method; e.g. `buffer.toString()` returns an immutable `String` with the buffer’s current contents."
+      },
+      {
+        "prompt": "How can you efficiently append data of any type to a `StringBuffer`?\\n",
+        "response": "Use the overloaded `append(...)` methods—e.g. `buffer.append(42).append(' ').append(obj)`—which convert and add the data in place without creating new objects."
+      },
+      {
+        "prompt": "How do you insert content at the front of a `StringBuffer`?\\n",
+        "response": "Use `insert(int index, …)` with index 0; e.g. `buffer.insert(0, \"count: \")` prefixes the text without reallocating intermediate strings."
+      },
+      {
+        "prompt": "How do you retrieve a single character from a `String` at a given index?\\n",
+        "response": "Use `charAt(int index)`; e.g. `str.charAt(0)` returns the first character, and `str.charAt(str.length()-1)` returns the last."
+      },
+      {
+        "prompt": "How do you extract a substring from a given start index to the end?\\n",
+        "response": "Use `substring(int startIndex)`; e.g. `str.substring(5)` returns the portion of `str` from index 5 through the end."
+      },
+      {
+        "prompt": "How do you extract a substring between two indices?\\n",
+        "response": "Use `substring(int startIndex, int endIndex)`, where `endIndex` is one past the last character you want; e.g. `str.substring(2,5)` grabs indices 2–4."
+      },
+      {
+        "prompt": "What do the two calls `str.substring(5, str.length())` and `str.substring(5)` return when `str = \"HelloWorld\"`?",
+        "response": "Both calls return the substring from index 5 to the end, i.e. \"World\"."
+      },
+      {
+        "prompt": "Why does the second parameter of `substring(start, end)` refer to the character just beyond the last character you want?",
+        "response": "Because it lets you specify a half-open range [start, end), which makes it easy to extract up to but not including a delimiter position without off-by-one adjustments."
+      },
+      {
+        "prompt": "How can you extract the part of a delimited string before the colon in `\"substring1:substring2\"`?",
+        "response": "Find the colon index: `int n = str.indexOf(':');` then take `str.substring(0, n)`, which yields \"substring1\"."
+      },
+      {
+        "prompt": "How can you combine `indexOf` and `substring` in one expression to get the text before a delimiter?",
+        "response": "Use `str.substring(0, str.indexOf(':'))` to return everything from index 0 up to (but not including) the colon."
+      },
+      {
+        "prompt": "What’s the common mistake to avoid when using `substring(int p1, int p2)`?",
+        "response": "Don’t forget that `p2` is the index one past the last character you want; using it as the last included index causes an off-by-one error."
+      },
+      {
+        "prompt": "How do you write a loop that processes each character of a `String str`?",
+        "response": "Use a counting loop: `for (int k = 0; k < str.length(); k++) { /* e.g. str.charAt(k) */ }`, since valid indexes run 0..length()-1."
+      },
+      {
+        "prompt": "Why must you use `k < str.length()` rather than `k <= str.length()` when indexing a Java string?",
+        "response": "Because the last valid index is `length()-1`; using `<=` causes an IndexOutOfBoundsException by accessing `str.charAt(length())`."
+      },
+      {
+        "prompt": "What is an off-by-one error in loop bounds, and how can you avoid it?",
+        "response": "An off-by-one occurs when a loop iterates one too many or one too few times (e.g. `<=` instead of `<`). Always check that your counter’s start and end conditions match the data’s zero-based indexing."
+      },
+      {
+        "prompt": "How can you count the number of occurrences of a character `ch` in a `String str`?",
+        "response": "Initialize a counter to 0, loop `for (int k = 0; k < str.length(); k++)`, if `str.charAt(k) == ch` increment the counter, then return it."
+      },
+      {
+        "prompt": "What is lexicographic order for strings in Java?",
+        "response": "Strings are compared character by character from left to right; the first unequal character determines order based on Unicode values; if all shared characters match, the shorter string precedes the longer; the empty string precedes all others."
+      },
+      {
+        "prompt": "Why must a lexicographic comparison loop only go up to the shorter string's length?",
+        "response": "Because calling `charAt(k)` beyond the end of the shorter string causes a `StringIndexOutOfBoundsException`, so you bound by `min(s1.length(), s2.length())`."
+      },
+      {
+        "prompt": "How do you decide which string precedes when one is a prefix of the other?",
+        "response": "If all compared characters match and one string is shorter, the shorter string precedes the longer one (e.g. \"alpha\" precedes \"alphabet\")."
+      },
+      {
+        "prompt": "What special case must be handled in lexicographic comparisons?",
+        "response": "The empty string, which by definition precedes every non-empty string."
+      },
+      {
+        "prompt": "Why does Unicode ordering affect lexicographic comparisons in Java?",
+        "response": "Because Java’s `char` values follow Unicode code points, so uppercase letters (e.g. 'Z') come before lowercase letters (e.g. 'a'), affecting string order."
+      },
+      {
+        "prompt": "What does the default Object.equals() method test in Java?",
+        "response": "By default, Object.equals() tests identity—that two references point to the exact same object instance."
+      },
+      {
+        "prompt": "How do String objects override equals()?",
+        "response": "String overrides equals() to test value equality: two Strings are equal if they contain the same sequence of characters in the same order."
+      },
+      {
+        "prompt": "What’s the difference between == and equals() when comparing objects?",
+        "response": "== tests reference identity (same object), while equals() (when overridden) can test logical equality (same content)."
+      },
+      {
+        "prompt": "How can you compare two Strings in Java without regard to letter case?",
+        "response": "Use String.equalsIgnoreCase(anotherString), which returns true if the character sequences match case-insensitively."
+      },
+      {
+        "prompt": "How do you compare two Strings lexicographically in Java?",
+        "response": "Use String.compareTo(anotherString): it returns negative if this precedes, zero if equal, and positive if this follows."
+      },
+      {
+        "prompt": "Why do two String literals with the same text often compare == as true?",
+        "response": "Because Java interns literal strings in a pool, so identical literals reference the same shared String object."
+      },
+      {
+        "prompt": "Why does new String(\"hello\") == \"hello\" return false but equals() returns true?",
+        "response": "new String(\"hello\") creates a distinct object, so == is false; equals() compares content, so it’s true."
+      },
+      {
+        "prompt": "What is the purpose of java.util.StringTokenizer?",
+        "response": "StringTokenizer breaks a string into individual tokens based on specified delimiter characters."
+      },
+      {
+        "prompt": "What delimiters does StringTokenizer use by default?",
+        "response": "By default it treats whitespace (space, tab, newline, carriage return, form feed) as delimiters."
+      },
+      {
+        "prompt": "How can you include punctuation as delimiters when using StringTokenizer?",
+        "response": "Use the constructor that takes a second String argument listing additional delimiters, e.g. new StringTokenizer(s, \",.;!?\")"
+      },
+      {
+        "prompt": "Which methods are used to iterate through tokens in a StringTokenizer?",
+        "response": "hasMoreTokens() returns true if tokens remain, and nextToken() retrieves the next token."
+      },
+      {
+        "prompt": "Why does nextToken() not return empty strings between adjacent delimiters?",
+        "response": "StringTokenizer collapses consecutive delimiters and never returns zero-length tokens."
+      },
+      {
+        "prompt": "How would you tokenize a URL like \"http://example.com/path\" into its parts?",
+        "response": "Create StringTokenizer(url, \":/\") and loop while hasMoreTokens(), calling nextToken() to get \"http\", \"example.com\", \"path\", etc."
+      },
+      {
+        "prompt": "How do you specify a tab or newline as a delimiter in StringTokenizer?",
+        "response": "Include the escape sequences '\\t' and '\\n' in the delimiter string, e.g. new StringTokenizer(s, \" \\t\\n\")"
+      },
+      {
+        "prompt": "What is an array in Java?",
+        "response": "An array is a named collection of contiguous storage locations that hold data items all of the same type."
+      },
+      {
+        "prompt": "How do arrays improve upon using individual variables?",
+        "response": "Arrays allow you to store and process multiple related values with a single named variable and loop over them efficiently."
+      },
+      {
+        "prompt": "How do you declare and create an array of 26 JButtons?",
+        "response": "Use `JButton[] letter = new JButton[26];` to declare and allocate storage for 26 JButton references."
+      },
+      {
+        "prompt": "How can you initialize each element of a JButton array in a loop?",
+        "response": "After declaring `letter[]`, use: `for (int k = 0; k < 26; k++) letter[k] = new JButton(\"A\" + k);`."
+      },
+      {
+        "prompt": "What types of arrays will be covered in this chapter?",
+        "response": "One-, two-, and three-dimensional arrays, as well as sorting and searching algorithms that process arrays."
+      },
+      {
+        "prompt": "Why are arrays described as 'contiguous'?",
+        "response": "Because their storage locations are adjacent in memory, allowing indexed access and efficient traversal."
+      },
+      {
+        "prompt": "What applications of arrays are mentioned?",
+        "response": "Examples include animations, sorting classes, and card-playing programs."
+      },
+      {
+        "prompt": "What is a one-dimensional array?",
+        "response": "A one-dimensional array is a linear data structure that stores a fixed-size sequence of elements of the same type, arranged in contiguous memory locations."
+      },
+      {
+        "prompt": "How do you reference elements in a Java array?",
+        "response": "You use the syntax `arrayName[index]`, where `index` is an integer subscript indicating the element's position."
+      },
+      {
+        "prompt": "At what index does a Java array begin?",
+        "response": "Java arrays are zero-indexed, so the first element is `array[0]` and the last is `array[n-1]` for an array of length n."
+      },
+      {
+        "prompt": "What types of values are allowed as array subscripts?",
+        "response": "Only integer values or integer expressions are allowed; using non-integer types like floats or strings is a syntax error."
+      },
+      {
+        "prompt": "What is the valid range for an array subscript in an array of length N?",
+        "response": "A valid subscript must be in the range `0` to `N-1`. Anything outside this range causes a runtime IndexOutOfBoundsException."
+      },
+      {
+        "prompt": "What happens if you use an out-of-bounds index in Java?",
+        "response": "The program compiles but throws an `IndexOutOfBoundsException` at runtime when you try to access an invalid array index."
+      },
+      {
+        "prompt": "What debugging tip helps avoid array subscript errors?",
+        "response": "Design test data that exercise boundary cases (e.g., first, last, and beyond-last indices) to ensure subscripts never go out of range."
+      },{
+        "prompt": "What must array subscripts follow in Java?",
+        "response": "An array subscript (index) must be an integer in the range 0…(N–1), where N is the array’s length."
+      },
+      {
+        "prompt": "What is a good debugging tip regarding array indices?",
+        "response": "When developing array algorithms, design test cases that exercise boundary indices (first, last, out-of-bounds) to ensure no runtime index errors occur."
+      },
+      {
+        "prompt": "How do you declare and create a one-dimensional array of 15 ints in Java in two steps?",
+        "response": "First declare: `int arr[];` Then create: `arr = new int[15];`"
+      },
+      {
+        "prompt": "How can you combine array declaration and creation into one statement?",
+        "response": "Use: `int[] arr = new int[15];` (or `int arr[] = new int[15];`)"
+      },
+      {
+        "prompt": "How do you declare an array variable versus its element type placement of brackets?",
+        "response": "Both are valid: `int arr[];` (brackets after name) or `int[] arr;` (brackets after type)."
+      },
+      {
+        "prompt": "What is the difference between `length` for arrays and `length()` for Strings?",
+        "response": "Arrays have a public instance variable `length` (no parentheses), whereas Strings use the method `length()`."
+      },
+      {
+        "prompt": "When you create `new String[5]`, how many String objects exist afterwards?",
+        "response": "Only the array object exists with 5 null references; you must separately instantiate each String element."
+      },
+      {
+        "prompt": "What initial values do the elements of a newly created object array hold?",
+        "response": "All elements are initialized to `null` until you assign actual object references."
+      },
+      {
+        "prompt": "Why are arrays in Java treated like objects but not part of the `Object` hierarchy?",
+        "response": "They are instantiated with `new`, have instance fields (like `length`), and are reference types, but aren’t subclassable or inherit from `Object`."
+      },
+      {
+        "prompt": "How do you use a loop to initialize a String array of length 5 with values \"hello1\"…\"hello5\"?",
+        "response": "```java\nString[] strs = new String[5];\nfor (int k = 0; k < strs.length; k++) {\n  strs[k] = \"hello\" + (k+1);\n}\n```"
+      },
+      {
+        "prompt": "What default values are assigned to new array elements in Java for boolean, numeric, and reference types?",
+        "response": "Boolean elements default to false; numeric (integer and floating-point) elements default to 0; reference-type elements default to null."
+      },
+      {
+        "prompt": "How do you declare and initialize an `int` array with specific values in one statement?",
+        "response": "Use an array initializer: `int arr[] = {-2, 8, -1, …, 21, -2};` — omit `new` and the size; the length is inferred from the braces."
+      },
+      {
+        "prompt": "How do you declare and initialize a `String` array of four elements in one step?",
+        "response": "Use string literals in braces: `String strings[] = {\"hello\", \"world\", \"goodbye\", \"love\"};`"
+      },
+      {
+        "prompt": "What happens to the array length when you provide an initializer list?",
+        "response": "The compiler infers the array’s length from the number of elements in the initializer list; you do not specify size explicitly."
+      },
+      {
+        "prompt": "How can you assign multiple array elements to the same value in one statement?",
+        "response": "Chain assignments: `strings[2] = strings[3] = \"where\";` assigns \"where\" to both index 2 and 3."
+      },
+      {
+        "prompt": "Write a loop that fills an `int` array `arr` with the first 15 perfect squares.",
+        "response": "```java\nfor (int k = 0; k < arr.length; k++)\n    arr[k] = (k+1) * (k+1);\n```"
+      },
+      {
+        "prompt": "How do you print all elements of an array `arr` in Java?",
+        "response": "```java\nfor (int k = 0; k < arr.length; k++)\n    System.out.println(arr[k]);\n```"
+      },
+      {
+        "prompt": "What is the benefit of using a symbolic constant for array size?",
+        "response": "Using a `static final` constant (e.g., `ARRSIZE`) makes the code more readable and maintainable, since changing the array size only requires one edit."
+      },
+      {
+        "prompt": "Why do we declare arrays `static` when accessing them from `main`?",
+        "response": "Because `main` is static, any variables it uses directly must also be static, avoiding \"attempt to make static use of non-static\" errors."
+      },
+      {
+        "prompt": "When should you avoid using array initializer lists and why?",
+        "response": "Only use initializer lists for small arrays; large arrays should be filled in code to avoid typos and maintain readability."
+      },
+      {
+        "prompt": "What is the off-by-one error when working with zero-indexed arrays in Java?",
+        "response": "Because Java arrays start at index 0, the last element is at index N−1. Using <= N or N as an index causes an off-by-one error and triggers an IndexOutOfBoundsException."
+      },
+      {
+        "prompt": "What is the high-level idea behind insertion sort on an array?",
+        "response": "Insertion sort builds a sorted region at the front of the array and then repeatedly takes the next element from the unsorted region and inserts it into its correct position in the sorted region."
+      },
+      {
+        "prompt": "Outline the pseudocode for insertion sort on an array `arr` of length N.",
+        "response": "```\nfor k from 1 to N−1:\n  temp = arr[k]\n  i = k−1\n  while i ≥ 0 and arr[i] > temp:\n    arr[i+1] = arr[i]\n    i = i−1\n  arr[i+1] = temp\n```"
+      },
+      {
+        "prompt": "In insertion sort, how are the 'sorted' and 'unsorted' parts of the array defined before inserting the kᵗʰ element?",
+        "response": "Before insertion, elements arr[0] through arr[k−1] form the sorted part; elements arr[k] through arr[N−1] are unsorted. We insert arr[k] into the correct spot among arr[0…k−1]."
+      },
+      {
+        "prompt": "How does the inner loop of insertion sort work and when does it terminate?",
+        "response": "The inner `while` loop compares `temp` (the kᵗʰ element) to elements in the sorted region, shifting any larger elements rightward. It stops when it finds an element ≤ `temp`, or when `i` goes below 0."
+      },
+      {
+        "prompt": "Why is the final insertion in insertion sort done at `arr[i+1]` rather than `arr[i]`?",
+        "response": "When the inner loop stops, `i` has been decremented one step too far—either to −1 or to the index of an element ≤ `temp`. So the correct insertion point is `i+1`."
+      },
+      {
+        "prompt": "What effect does insertion sort’s element-shifting mechanism have on partially sorted arrays?",
+        "response": "Because it only shifts elements greater than `temp`, insertion sort is efficient on nearly sorted data: each element moves at most as far as needed to restore order."
+      },
+      {
+        "prompt": "When implementing insertion sort, what indices should you test to avoid off-by-one errors?",
+        "response": "Ensure your outer loop runs `k = 1; k < N; k++`, and your inner loop uses `while (i >= 0 && arr[i] > temp)`. Then always insert at `arr[i+1]`."
+      },
+      {
+        "prompt": "How must you declare an array parameter in Java to distinguish it from a non-array parameter?",
+        "response": "You must include empty brackets either after the type or after the parameter name, for example `void insertionSort(int[] arr)` or `void insertionSort(int arr[])`, so that the compiler knows it’s an array."
+      },
+      {
+        "prompt": "How do you pass an array to a method in Java?",
+        "response": "You pass just the array’s name without any brackets, e.g. `sorter.insertionSort(intArr);`, since `intArr` already refers to the array object."
+      },
+      {
+        "prompt": "What is the general outline of selection sort on an array `arr` of length N?",
+        "response": "```\nfor k from 0 to N−2:\n  smallest = k\n  for j from k+1 to N−1:\n    if arr[j] < arr[smallest]:\n      smallest = j\n  swap(arr, k, smallest)\n```"
+      },
+      {
+        "prompt": "In selection sort, what does the outer loop variable `k` represent?",
+        "response": "On each iteration `k` marks the boundary between the sorted and unsorted parts: elements `arr[0]` through `arr[k−1]` are sorted, and you select the next smallest from `arr[k]…arr[N−1]` to place at `arr[k]`."
+      },
+      {
+        "prompt": "How do you swap two elements `arr[j]` and `arr[k]` in an int array safely?",
+        "response": "Use a temporary variable:\n```\nint temp = arr[j];\narr[j] = arr[k];\narr[k] = temp;\n```"
+      },
+      {
+        "prompt": "Why is a temporary variable necessary when swapping two variables?",
+        "response": "Without it, assigning `arr[j] = arr[k]` first overwrites the original `arr[j]` value, so you lose it. The temp holds one value while you overwrite the other."
+      },
+      {
+        "prompt": "What happens if you try to swap without a temporary variable, e.g. `arr[j] = arr[k]; arr[k] = arr[j];`?",
+        "response": "You end up copying the second element into both positions, e.g. swapping 4 and 2 becomes 2,2 instead of 2,4, because the original `arr[j]` was lost."
+      },
+      {
+        "prompt": "What boundary conditions must you watch for in the inner loop of insertion sort?",
+        "response": "Your inner `while` must test both `i >= 0` (to avoid going out of bounds) and `arr[i] > temp` (to stop when the correct insertion point is found), i.e. `while (i >= 0 && arr[i] > temp) { … }`."
+      },
+      {
+        "prompt": "After the inner loop in insertion sort terminates, where do you insert the saved element?",
+        "response": "You insert it at `arr[i+1]`, because when the loop stops `i` is one position left of the correct insertion point."
+      },
+      {
+        "prompt": "What common debugging tip applies to declaring an array parameter versus a non-array parameter?",
+        "response": "Remember to include `[]` in the parameter declaration—omitting the brackets makes the parameter an `int`, not an `int[]`, leading to a signature clash or compile error."
+      },
+      {
+        "prompt": "What debugging tip applies when calling a method with an array argument?",
+        "response": "Use only the array name (no `[]`), e.g. `insertionSort(myArray);`—adding brackets would be a syntax error."
+      },
+      {
+        "prompt": "What happens when you pass a primitive value to a Java method?",
+        "response": "A copy of the value is passed, so changes to the parameter inside the method do not affect the original variable."
+      },
+      {
+        "prompt": "How do you pass an array (or any object) to a Java method?",
+        "response": "A copy of the reference to the object is passed, so the method can modify the actual object via that reference."
+      },
+      {
+        "prompt": "Given `public void add1(int n) { n = n + 1; }` and `int Num = 5; add1(Num);`, what is the value of `Num` afterward?",
+        "response": "It remains 5, because `add1` only modifies its local copy of the primitive value."
+      },
+      {
+        "prompt": "Given an array `int[] a = {3,1,4}; sort(a);`, why is `a` sorted after the call?",
+        "response": "Because `sort` receives a copy of the array reference and rearranges `a` in place, affecting the original array object."
+      },
+      {
+        "prompt": "Why does Java pass object references rather than entire objects to methods?",
+        "response": "For efficiency: copying a 4-byte reference is much cheaper than duplicating the entire object, which may be large."
+      },
+      {
+        "prompt": "What is the sequential (linear) search algorithm for an array?",
+        "response": "```\nfor i from 0 to N−1:\n  if arr[i] == key:\n    return i\nreturn -1\n```"
+      },
+      {
+        "prompt": "What does a sequential search return if the key is not found?",
+        "response": "`-1`, to indicate that no matching element was located in the array."
+      },
+      {
+        "prompt": "How many elements does a sequential search inspect in the worst case?",
+        "response": "All N elements (if the key is absent or at the last position), so it’s O(N) time complexity."
+      },
+      {
+        "prompt": "What is Principle 9.5.8 in Java parameter passing?",
+        "response": "When passing a primitive type, a copy of its value is passed; when passing an object, a copy of its reference is passed."
+      },
+      {
+        "prompt": "If you want to prevent a method from modifying your original array, what must you do?",
+        "response": "Create and pass a copy of the array (e.g., `int[] copy = original.clone();`) so the method works on the clone instead."
+      },
+      {
+        "prompt": "What sentinel value do Java search methods like sequentialSearch() and binarySearch() return when the key is not found?",
+        "response": "-1"
+      },
+      {
+        "prompt": "Why do search methods return a sentinel value like -1 instead of throwing an exception when the key is absent?",
+        "response": "Returning a sentinel value lets the caller distinguish \"not found\" in a simple, efficient way without interrupting normal control flow."
+      },
+      {
+        "prompt": "What precondition must hold for binarySearch() to work correctly on an array?",
+        "response": "The array’s elements must be sorted in ascending order (or consistently ordered)."
+      },
+      {
+        "prompt": "Outline the high-level steps of the binary search algorithm on an ascending array of length N.",
+        "response": "```\nlow = 0; high = N - 1;\nwhile (low <= high) {\n  mid = (low + high) / 2;\n  if (arr[mid] == key) return mid;\n  else if (arr[mid] < key) low = mid + 1;\n  else high = mid - 1;\n}\nreturn -1;\n```"
+      },
+      {
+        "prompt": "How many elements does a binary search examine in the worst case on an array of size N?",
+        "response": "At most ⌈log₂N⌉ + 1 comparisons, since each step halves the remaining range."
+      },
+      {
+        "prompt": "In the binary search loop, what condition causes the loop to terminate without finding the key?",
+        "response": "When low becomes greater than high (low > high), indicating the subarray is empty."
+      },
+      {
+        "prompt": "In binary search, how are the variables low and high updated when arr[mid] < key?",
+        "response": "low is set to mid + 1, since the key must lie in the right half above mid."
+      },
+      {
+        "prompt": "What happens to high when arr[mid] > key in a binary search?",
+        "response": "high is set to mid - 1, because the key must lie in the left half below mid."
+      },
+      {
+        "prompt": "Describe the trace of low, mid, and high when searching for -5 in the array [1,2,…,20].",
+        "response": "```\nIteration 0: low=0, high=19, mid=9\nIteration 1: low=0, high=8,  mid=4\nIteration 2: low=0, high=3,  mid=1\nIteration 3: low=0, high=0,  mid=0\nIteration 4: low=0, high=-1 -> terminate, return -1\n```"
+      },
+      {
+        "prompt": "How does the TestSearch class demonstrate the difference between sequentialSearch() and binarySearch()?",
+        "response": "It prompts the user for a key, then prints the index found (or \"not contained\") by both methods on the same sorted array."
+      },
+      {
+        "prompt": "How do you declare a two-dimensional array in Java to store rainfall for 12 months with up to 31 days each?",
+        "response": "double rainfall[][] = new double[12][31];"
+      },
+      {
+        "prompt": "Why might you declare rainfall as new double[13][32] instead of [12][31]?",
+        "response": "To allow unit indexing (1–12 for months, 1–31 for days) by leaving row 0 and column 0 unused, improving readability and reducing off-by-one errors."
+      },
+      {
+        "prompt": "How would you refer to the rainfall amount for January 5 using unit indexing on a double[13][32] array?",
+        "response": "rainfall[1][5]"
+      },
+      {
+        "prompt": "What exception is thrown if you try to access rainfall[13][32] on a double[13][32] array?",
+        "response": "IndexOutOfBoundsException"
+      },
+      {
+        "prompt": "How do you initialize every valid element of rainfall[13][32] to 0.0 using nested for-loops and unit indexing?",
+        "response": "```\nfor (int month = 1; month < rainfall.length; month++)\n  for (int day = 1; day < rainfall[month].length; day++)\n    rainfall[month][day] = 0.0;\n```"
+      },
+      {
+        "prompt": "In a two-dimensional array rainfall, what does rainfall.length return?",
+        "response": "The number of rows (the length of the first dimension), e.g., 13 months."
+      },
+      {
+        "prompt": "What does rainfall[month].length return in a two-dimensional array?",
+        "response": "The length of that month’s row (the number of columns), e.g., 32 days."
+      },
+      {
+        "prompt": "Why is the inner loop said to \"iterate faster\" in a nested for-loop over a 2D array?",
+        "response": "Because for each single iteration of the outer (month) loop, the inner (day) loop runs through all its iterations—so the inner counter changes most rapidly."
+      },
+      {
+        "prompt": "How can I improve two-dimensional arrays and indexing readability?",
+        "response": "EFFECTIVE DESIGN: Readability. To improve robustness and readability, you can declare extra array elements and ignore index 0, allowing unit indexing for rows and columns."
+      },
+      {
+        "prompt": "How do you declare a method in Java to initialize all elements of a two-dimensional double array to 0.0?",
+        "response": "```java\npublic void initRain(double rain[][]) {\n    for (int month = 1; month < rain.length; month++)\n        for (int day = 1; day < rain[month].length; day++)\n            rain[month][day] = 0.0;\n}\n```"
+      },
+      {
+        "prompt": "Why must the parameter declaration for a two-dimensional array include two sets of brackets?",
+        "response": "Each pair of brackets corresponds to one dimension. For a 2D array of doubles, you write `double rain[][]` (or `double[][] rain`) so Java knows it has two dimensions."
+      },
+      {
+        "prompt": "What do `rain.length` and `rain[month].length` represent inside `initRain`?",
+        "response": "`rain.length` is the number of rows (e.g., months). `rain[month].length` is the number of columns in that row (e.g., days in that month)."
+      },
+      {
+        "prompt": "Why does modifying `rain` inside `initRain` persist after the method returns?",
+        "response": "Because arrays are objects and are passed by reference: the method parameter `rain` refers to the original array, so in-place updates affect the caller’s array."
+      },
+      {
+        "prompt": "How would you generate large amounts of rainfall test data within a realistic range using `Math.random()`?",
+        "response": "You can do something like:\n```java\nfor (int m = 1; m < rain.length; m++) {\n  for (int d = 1; d < rain[m].length; d++) {\n    rain[m][d] = Math.random() * MAX_EXPECTED;\n  }\n}\n```\nwhere `MAX_EXPECTED` is the upper bound of your simulated rainfall."
+      },
+      {
+        "prompt": "How do you scale `Math.random()` to produce values between `min` and `max`?",
+        "response": "Use `(Math.random() * (max - min)) + min` to get a double in the interval `[min, max)`."
+      },
+      {
+        "prompt": "What is important for effective design about generating test data?",
+        "response": "EFFECTIVE DESIGN: Generating Test Data. The `Math.random()` method can be used to generate numeric test data when large amounts are required, scaling the results to fit the expected range."
+      },
+      {
+        "prompt": "Why is it helpful to generate large arrays of test data programmatically rather than entering them by hand?",
+        "response": "Manually entering thousands of values is error-prone and time-consuming. Using `Math.random()` or other loops automates data creation, ensures good coverage, and speeds up testing."
       }
-
-  
-
-
   ]
