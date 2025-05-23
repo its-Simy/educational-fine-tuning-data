@@ -73,4 +73,4 @@ The dataset simulates a tutoring session between:
     ]
   }
 ```
-This book is licensed under the CC-BY-SA open-source license.
+
